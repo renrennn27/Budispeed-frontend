@@ -9,10 +9,10 @@
                 <a href="#">Produk</a>
                 <a href="#">Galeri</a>
                 <a href="#">Hubungi Kami</a>
+                <div class="cart-icon">
+                    <img src="../assets/cart.png" alt="Cart" />
+                </div>
             </nav>
-            <div class="cart-icon">
-                <img src="../assets/cart.png" alt="Cart" />
-            </div>
         </div>
     </header>
 </template>
@@ -20,8 +20,7 @@
 <style scoped>
 .navbar {
     width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: transparent;
     padding: 15px 0;
 }
 .navbar-container {
@@ -47,7 +46,7 @@
     transition: color 0.3s;
 }
 .cart-icon img {
-    height: 24px;
+    height: 28px;
 }
 .nav-links a:hover {
     color: var(--primary-color);
