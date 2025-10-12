@@ -1,174 +1,242 @@
 <template>
-    <footer class="main-footer">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Budi Speed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="footer-section">
+            
+            <div class="footer-header-bar">
+                <h3 class="footer-title">Hubungi <span>Kami</span></h3>
+                
+                <div class="footer-social-info">
+                    <p class="info-text">Ikuti kami untuk info produk, promo, dan konten terbaru.</p>
+                    <div class="social-icons-inline">
+                        <a href="#" class="social-placeholder"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-placeholder"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-placeholder"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-column about-us">
+                    <h4>Budi Speed</h4>
+                    <p>Kami selalu siap membantu. Baik untuk bertanya tentang produk, konsultasi, atau mampir langsung ke bengkel kami. Silahkan, jangan ragu untuk menghubungi kami.</p>
+                </div>
+                
+                <div class="footer-column menu-links">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Produk</a></li>
+                        <li><a href="#">Galeri & Testimoni</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column contact-info">
+                    <h4>Kontak</h4>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p> Manyar Kertoadi VI No.6, Manyar Sabrangan, <br> Kec. Mulyorejo, Surabaya, Jawa Timur 60116</br>
+                        </p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p>+62 812-5678-8493</p>
+                    </div>
+                  
+                    </div>
 
-    <div class="footer-header-container">
-      <div class="footer-header-left">
-        <h2>Hubungi Kami</h2>
-      </div>
-      <div class="footer-header-right">
-        <p>Ikuti kami untuk info produk, promo, dan konten terbaru</p>
-        <div class="social-icons-inline">
-          <div class="social-placeholder"></div>
-          <div class="social-placeholder"></div>
-          <div class="social-placeholder"></div>
+                  <div class="footer-column contact-info">
+                      <h4>Lokasi Kami</h4>
+                    <div class="map-container">
+        <iframe class="map-frame" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4986.288697070992!2d112.77892322041916!3d-7.284011497895683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3f42173e2d%3A0x4ee162c8567b9643!2sBUDI%20SPEED!5e0!3m2!1sid!2sid!4v1760294317785!5m2!1sid!2sid" width="400" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+            </iframe>
+    </div>
+              </div>
+            </div>
+
+            <div class="footer-note">
+                © 2025 Budispeed.id All Rights Reserved.
+            </div>
         </div>
-      </div>
     </div>
-
-    <div class="footer-container">
-      
-      <div class="footer-col about-us">
-        <h3>Budi Speed</h3>
-        <p>Kami selalu siap membantu. Baik untuk bertanya tentang produk, konsultasi, atau mampir langsung ke bengkel kami di Surabaya, jangan ragu untuk menghubungi kami.</p>
-      </div>
-
-      <div class="footer-col menu-links">
-        <h3>Menu</h3>
-          <ul>
-          <li><a href="#">Tentang Kami</a></li>
-          <li><a href="#">Produk</a></li>
-          <li><a href="#">Galeri & Testimoni</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col contact-info">
-        <h3>Kontak</h3>
-        <p>
-          <span class="icon">📍</span> Jl. Manyar Kerto Adi VI No.6, Manyar Sabrangan, Kec. Mulyorejo, Surabaya, Jawa Timur 60116
-        </p>
-        <p>
-          <span class="icon">📞</span> ‪+62 812-5678-8493‬
-        </p>
-      </div>
-      
-    </div>
-    
-    <div class="footer-copyright">
-        <p class="copyright-text">
-          ©2025 Budi Speed. All Right Reserved.
-        </p>
-    </div>
-  </footer>
+</body>
 </template>
 
-<style scoped>
-.main-footer {
-  background-color: #f7f7f7; 
-  padding: 40px 20px;
+<style>
+
+.footer-section {
+    background-color: #2c2c2c;
+    color: #cccccc;
+    font-family: Arial, sans-serif;
+    padding: 50px 20px 10px 20px;
 }
 
-.footer-container, .footer-header-container, .footer-copyright {
-  max-width: 1200px;
-  margin: 0 auto;
+.footer-header-bar, .footer-content, .footer-note {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.footer-header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end; 
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ddd;
+.footer-header-bar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-end; 
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-.footer-header-left h2 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #333;
-  margin: 0;
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+.footer-title span {
+    color: #e30613;
+    font-weight: bolder; 
+    font-size: 24px;
 }
 
-.footer-header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.footer-social-info {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 10px;
+    display: flex;
+    gap: 10px;
 }
 
-.footer-header-right p {
-font-size: 12px;
-color: #888;
-margin: 0;
-padding-bottom: 3px; 
+.map-container {
+    width: 100%;
+    margin-top: 15px;
+    height: 180px;
+}
+
+.map-frame {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-social-info {
+    font-size: 1  14px;
+    color: #888;
+    margin: 0 0 5px 0;
+    line-height: 1.4;
+}
+
+.info-text {
+  font-size: 14px;
 }
 
 .social-icons-inline {
-  display: flex;
-  gap: 5px;
+    display: flex;
+    justify-content: flex-end; 
+    gap: 8px;
+    font-size: 10px;
 }
 
 .social-placeholder {
-  width: 25px;
-  height: 25px;
-  background-color: #e30613;
-  border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #e30613; 
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+.social-placeholder:hover {
+    background-color: #ff5050;
 }
 
-.footer-container {
-  display: flex; 
-  justify-content: space-between; 
-  gap: 30px; 
-  flex-wrap: wrap; 
+.footer-content {
+    display: flex; 
+    gap: 40px; 
+    padding-bottom: 30px;
+    justify-content: flex-start;
 }
 
-.footer-col {
-  flex: 1; 
-  min-width: 200px; 
-}
-
-.footer-col h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.footer-col p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 10px;
+.footer-column {
+    flex: 0 1 auto; 
+    min-width: 150px; 
 }
 
 .about-us {
-  flex: 1.5; 
-  min-width: 250px;
+    flex: 0 1 350px;
+    min-width: 350px;
+
 }
 
-.menu-links ul {
-  list-style: none; 
-  padding: 0;
-  margin: 0;
+.footer-column h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
 }
 
-.menu-links li a {
-  text-decoration: none;
-  color: #555;
-  font-size: 14px;
-  display: block; 
-  padding: 5px 0;
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 10px;
 }
 
-.menu-links li a:hover {
-  color: #e30613; 
+.footer-column ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
 }
 
-.contact-info {
-  flex: 1.2;
-}
-.contact-info p .icon {
-  margin-right: 5px;
+.footer-column li a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 14px;
+    display: block; 
+    padding: 5px 0;
+    transition: color 0.3s;
 }
 
-.footer-copyright {
-    padding-top: 30px;
+.footer-column li a:hover {
+    color: #e30613; 
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.contact-detail i {
+    margin-right: 10px;
+    color: #e30613; 
+    margin-top: 3px; 
+    min-width: 15px;
+}
+
+.contact-detail p {
+    text-align: left;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: normal;
+}
+
+.footer-note {
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: #888;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
 }
-
-.copyright-text {
-font-size: 12px;
-color: #888;
-margin: 0;
-} 
-
-
 </style>
