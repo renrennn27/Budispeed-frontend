@@ -7,13 +7,14 @@
   --secondary-color: #EFEAEA;
   --background-color: #FFFFFF;
   --radius-border: 8px;
-  --bayangan: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 body {
   background-color: var(--background-color);
-  color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
+  color: #000000;
   line-height: 1.6;
   margin: 0;
   padding: 0;
