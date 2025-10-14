@@ -1,3 +1,7 @@
+<script setup>
+import { Icon } from '@iconify/vue'
+</script>
+
 <template>
 <head>
     <meta charset="UTF-8">
@@ -6,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
         <div class="footer-section">
             
             <div class="footer-header-bar">
@@ -43,12 +45,12 @@
                 <div class="footer-column contact-info">
                     <h4>Kontak</h4>
                     <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p> Manyar Kertoadi VI No.6, Manyar Sabrangan, <br> Kec. Mulyorejo, Surabaya, Jawa Timur 60116</br>
+                        <Icon class="icon" icon="mdi:location" width="25" />
+                        <p> Manyar Kertoadi VI No.6, Manyar Sabrangan, <br> Kec. Mulyorejo, Surabaya, Jawa Timur 60116
                         </p>
                     </div>
                     <div class="contact-detail">
-                        <i class="fas fa-phone"></i>
+                        <Icon class="icon" icon="mdi:telephone" width="25" />
                         <p>+62 812-5678-8493</p>
                     </div>
                   
@@ -69,8 +71,6 @@
                 © 2025 Budispeed.id All Rights Reserved.
             </div>
         </div>
-    </div>
-</body>
 </template>
 
 <style>
@@ -93,6 +93,7 @@
     align-items: flex-end; 
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-title {
@@ -157,7 +158,8 @@
     transition: background-color 0.3s;
 }
 .social-placeholder:hover {
-    background-color: #ff5050;
+    background-color: transparent;
+    border: 1px solid #fff;
 }
 
 .footer-content {
@@ -217,9 +219,9 @@
     margin-bottom: 15px;
 }
 
-.contact-detail i {
+.icon {
     margin-right: 10px;
-    color: #e30613; 
+    color: #e30613;
     margin-top: 3px; 
     min-width: 15px;
 }
