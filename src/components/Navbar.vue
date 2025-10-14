@@ -38,6 +38,7 @@
 .nav-links {
     display: flex;
     gap: 30px;
+    font-family: 'Montserrat', sans-serif;
 }
 .nav-links a {
     text-decoration: none;
