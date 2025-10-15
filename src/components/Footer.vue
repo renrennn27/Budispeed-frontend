@@ -18,9 +18,9 @@ import { Icon } from '@iconify/vue'
                 <div class="footer-social-info">
                     <p class="info-text">Ikuti kami untuk info produk, promo, dan konten terbaru.</p>
                     <div class="social-icons-inline">
-                        <a href="#" class="social-placeholder"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-placeholder"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-placeholder"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/budispeed.id" class="social-placeholder"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@danielbudianto28?si=fuCwg51jAwG2oZyq" class="social-placeholder"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" class="social-placeholder"><i class="fab fa-tiktok"></i></a>
                         <a href="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     
@@ -53,23 +53,21 @@ import { Icon } from '@iconify/vue'
                         <Icon class="icon" icon="mdi:telephone" width="25" />
                         <p>+62 812-5678-8493</p>
                     </div>
-                  
                     </div>
-
-                  <div class="footer-column contact-info">
-                      <h4>Lokasi Kami</h4>
+                    <div class="footer-column contact-info">
+                    <h4>Lokasi Kami</h4>
                     <div class="map-container">
-        <iframe class="map-frame" 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4986.288697070992!2d112.77892322041916!3d-7.284011497895683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3f42173e2d%3A0x4ee162c8567b9643!2sBUDI%20SPEED!5e0!3m2!1sid!2sid!4v1760294317785!5m2!1sid!2sid" width="400" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        <iframe class="map-frame" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4986.288697070992!2d112.77892322041916!3d-7.284011497895683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3f42173e2d%3A0x4ee162c8567b9643!2sBUDI%20SPEED!5e0!3m2!1sid!2sid!4v1760294317785!5m2!1sid!2sid" width="400" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
 
-            </iframe>
-    </div>
-              </div>
+                        </iframe>
+                    </div>
+                    </div>
             </div>
 
-            <div class="footer-note">
+                <div class="footer-note">
                 © 2025 Budispeed.id All Rights Reserved.
-            </div>
+                </div>
         </div>
 </template>
 

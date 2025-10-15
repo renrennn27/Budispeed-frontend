@@ -26,7 +26,7 @@ import HomePage from '../components/HomePage.vue'
         <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/bodykit.png" alt="bodykit">
-            <P>Pemasangan Body Kit Venturer oleh <span class="tulisan-merah">Bos BudiSpeed</span></P>
+            <P class="p-right">Pemasangan Body Kit Venturer oleh <span class="tulisan-merah">Bos BudiSpeed</span></P>
           </div>
         </div>
         <div class="timeline-item right">
@@ -136,7 +136,7 @@ import HomePage from '../components/HomePage.vue'
 
 .h2-gallery {
   text-align: left;
-  margin-left: 50px;
+  margin-left: 90px;
   font-size: 24px;
   font-weight: bold;
   color: #333;
@@ -170,6 +170,8 @@ import HomePage from '../components/HomePage.vue'
   position: relative;
   width: 50%;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .timeline-item::after {
@@ -181,13 +183,13 @@ right: -10px;
 background-color: #d9534f;
 top: 20px;
 border-radius: 50%;
+transform: translateY(-50%);
 z-index: 1;
 }
 
 .timeline-item.left {
   left: 0;
-  padding-right: 30px;
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .timeline-item.left::after {
@@ -196,7 +198,8 @@ z-index: 1;
 
 .timeline-item.right {
   left: 50%;
-  padding-left: 30px;
+  justify-content: flex-start;
+
 }
 
 .timeline-item.right::after {
@@ -206,19 +209,22 @@ z-index: 1;
 .timeline-content {
   padding: 15px;
   position: relative;
-  display: inline-block;
+  display: flex;
   border-radius: 6px;
   background-color: white;
   text-align: left;
+  align-items: center;
+  gap: 15px;
 
 }
 
 .timeline-content img {
-  width: 100%;
+  width: 150px;
   height: auto;
   margin-bottom: 10px;
   display: block;
   border-radius: 8px;
+  flex-shrink: 0;
   
 }
 
@@ -230,5 +236,8 @@ z-index: 1;
     color: #333;
 }
 
+.p-right {
+  margin-left: 150px;
+}
 
 </style>
