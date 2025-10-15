@@ -42,7 +42,6 @@ import { Icon } from '@iconify/vue'
   font-size: 3rem;
   font-style: italic;
   font-weight: bold;
-  text-shadow: var(--text-shadow);
 }
 .hero h1 span {
   color: var(--primary-color);
@@ -52,7 +51,6 @@ import { Icon } from '@iconify/vue'
   font-size: 1.5rem;
   font-weight: bold;
   font-style: italic;
-  text-shadow: var(--text-shadow);
 }
 .hero p {
   font-size: 1.1rem;
@@ -71,7 +69,7 @@ import { Icon } from '@iconify/vue'
   border-radius: 50px;
   font-size: 1rem;
   font-weight: bold;
-  text-shadow: var(--text-shadow);
+  color: white;
   box-shadow: var(--shadow);
   cursor: pointer;
 }
@@ -87,11 +85,12 @@ import { Icon } from '@iconify/vue'
   cursor: pointer;
 }
 .btn-primary:hover {
-  background-color: transparent;
+  background-color: #cc0000;
+  text-shadow: var(--text-shadow);
 }
 .btn-secondary:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #f0ecec;
+  text-emphasis: var(--text-shadow);
 }
 .social-icons {
   margin-top: 30px;
@@ -100,7 +99,7 @@ import { Icon } from '@iconify/vue'
   gap: 20px;
 }
 .social-icons a {
-  color: black;
+  color: white;
   transition: color 0.3s;
   background-color: var(--primary-color);
   border-radius: 50%;
@@ -114,5 +113,7 @@ import { Icon } from '@iconify/vue'
 }
 .social-icons a:hover {
   background-color: transparent;
+  color: black;
+  border: 1px solid black;
 } 
 </style>
