@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginPage from '../components/LoginPage.vue'
+import SigninPage from '@/components/SigninPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,9 +12,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/login', // <-- Ini adalah URL yang akan Anda buka di browser
+      path: '/login',
       name: 'login',
-      component: LoginPage // <-- Ini komponen yang akan ditampilkan
+      component: LoginPage
+    },
+    {
+      path: '/Sign-in',
+      name: 'Sign-in',
+      component: SigninPage
     },
     {
       path: '/about',

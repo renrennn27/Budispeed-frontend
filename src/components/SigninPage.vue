@@ -1,5 +1,5 @@
 <template>
-<div class="container1">
+    <div class="container1">
 
     <a href="#" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
 
@@ -11,7 +11,7 @@
 
         <div class="right-panel">
             <h1>Halo <span class="highlight">Admin!</span></h1>
-            <p>Silahkan masuk untuk mengelola toko Anda!</p>
+            <p>Silahkan daftar untuk mengelola toko Anda!</p>
 
             <form>
                 <div class="input-group">
@@ -22,11 +22,11 @@
                     <input type="password" placeholder="Kata Sandi" required>
                     <i class="fas fa-lock icon"></i>
                 </div>
-                <button type="submit">Masuk</button>
+                <button type="submit">Daftar</button>
             </form>
 
             <p class="signup-link">
-                Belum punya akun? <a href="Sign-in">buat sekarang!</a>
+                Sudah memiliki akun? <a href="Login">masuk!</a>
             </p>
         </div>
     </div>
