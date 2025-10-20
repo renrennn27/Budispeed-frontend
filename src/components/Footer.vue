@@ -3,25 +3,16 @@ import { Icon } from '@iconify/vue'
 </script>
 
 <template>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Budi Speed</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
         <div class="footer-section">
-            
             <div class="footer-header-bar">
                 <h3 class="footer-title">Hubungi <span>Kami</span></h3>
-                
                 <div class="footer-social-info">
                     <p class="info-text">Ikuti kami untuk info produk, promo, dan konten terbaru.</p>
                     <div class="social-icons-inline">
-                        <a href="https://www.instagram.com/budispeed.id" class="social-placeholder"><i class="fab fa-instagram"></i></a>
-                        <a href="https://youtube.com/@danielbudianto28?si=fuCwg51jAwG2oZyq" class="social-placeholder"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" class="social-placeholder"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></a>
+                        <RouterLink to="https://www.instagram.com/budispeed.id" class="social-placeholder"><i class="fab fa-instagram"></i></RouterLink>
+                        <RouterLink to="https://youtube.com/@danielbudianto28?si=fuCwg51jAwG2oZyq" class="social-placeholder"><i class="fab fa-youtube"></i></RouterLink>
+                        <RouterLink to="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" class="social-placeholder"><i class="fab fa-tiktok"></i></RouterLink>
+                        <RouterLink to="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></RouterLink>
                     </div>
                     
                 </div>

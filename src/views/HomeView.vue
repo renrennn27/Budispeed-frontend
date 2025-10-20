@@ -3,12 +3,14 @@ import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
 import HomePage from '../components/HomePage.vue'
 import GaleryTestimoni from '../components/GaleryTestimoni.vue'
+import Testimoni from '../components/Testimoni.vue'
 </script>
 
 <template>
   <Navbar />
   <HomePage />
   <GaleryTestimoni />
+  <Testimoni />
   <Footer />
 </template>
 

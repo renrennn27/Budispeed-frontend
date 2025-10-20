@@ -1,7 +1,11 @@
+<script setup>
+import { Icon } from '@iconify/vue'
+</script>
+
 <template>
 <div class="container1">
 
-    <a href="#" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+<router-link to="/" class="back-arrow"><Icon icon="mdi:arrow-left"/></router-link>
 
     <div class="login-wrapper">
         
@@ -16,11 +20,11 @@
             <form>
                 <div class="input-group">
                     <input type="email" placeholder="Email" required>
-                    <i class="fas fa-envelope icon"></i>
+                    <Icon icon="mdi:envelope" class="icon" />
                 </div>
                 <div class="input-group">
                     <input type="password" placeholder="Kata Sandi" required>
-                    <i class="fas fa-lock icon"></i>
+                    <Icon icon="mdi:lock" class="icon" />
                 </div>
                 <button type="submit">Masuk</button>
             </form>
