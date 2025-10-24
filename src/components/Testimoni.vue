@@ -3,7 +3,7 @@
     <div class="container">
         
         <section id="testimonials">
-            <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+            <h2 class="section-title">Apa Kata <span class="red-line">Pelanggan Kami</span></h2>
 
             <div class="scroll-wrapper">
                 <div class="testimonial-container">
@@ -11,7 +11,7 @@
                     <div class="testimonial-card">
                         <div class="card-header">
                             <div class="author-info">
-                                <img src="@/assets/Testimoni1.png" alt="Avatar Budi" class="avatar">
+                                <img src="@/assets/Testimoni1.png" alt="Avatar d**6" class="avatar">
                                 <p class="author">d**6</p>
                             </div>
                             <div class="rating">
@@ -23,7 +23,7 @@
                             <img src="../assets/Littletrees.png" alt="Produk" class="product-image">
                             <div class="product-details">
                                 <p class="product-name">Produk: Little trees</p>
-                                <p class="product-variation">Varian: Mangga</p>
+                                <p class="product-variation">Varian: Black Ice</p>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="testimonial-card">
                         <div class="card-header">
                             <div class="author-info">
-                                <img src="../assets/E icons.png" alt="Avatar Siti" class="avatar">
+                                <img src="../assets/E icons.png" alt="Avatar E**" class="avatar">
                                 <p class="author">E**</p>
                             </div>
                             <div class="rating">
@@ -40,7 +40,7 @@
                         </div>
                         <p class="quote">Kain nya sangat lembut dan menyerap, bisa buat handukan ayam</p>
                         <div class="product-info">
-                            <div class="product-image video-thumb">
+                            <div class="product-image">
                                 <img src="../assets/Ayam.png" alt="Produk" class="product-image">
                             </div>
                             <div class="product-details">
@@ -93,13 +93,13 @@
     margin: 0 auto;
     padding: 0 20px; 
     align-items: center;
-    margin-right: 30px;
+    margin-right: 90px;
 }
 
 .section-title {
-    font-size: 2.25rem; 
-    font-weight: 600;
-    color: #FFFFFF;
+    font-size: 24px; 
+    font-weight: bold;
+    color: #2c2c2c;
     margin-bottom: 24px;
     margin-top: 40px;
 }
@@ -133,7 +133,7 @@
 
 .testimonial-card {
     flex: 0 0 340px; 
-    background-color: white;
+    background-color: #2c2c2c;
     border-radius: 12px;
     padding: 20px;
     display: flex;
@@ -163,7 +163,7 @@
 .author-info .author {
     font-size: 0.95rem;
     font-weight: 600;
-    color: black;
+    color: white;
     margin: 0;
 }
 
@@ -179,7 +179,7 @@
 
 .testimonial-card .quote {
     font-size: 0.95rem;
-    color: black;
+    color: white;
     margin: 0 0 16px 0;
     line-height: 1.5;
 }
@@ -189,7 +189,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: white; 
+    background-color: #2c2c2c; 
     border-radius: 8px;
     padding: 12px;
     margin-top: auto; 
@@ -202,7 +202,7 @@
 .product-details .product-name {
     font-size: 0.9rem;
     font-weight: 500;
-    color: black;
+    color: white;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -234,28 +234,10 @@
     overflow: hidden;
 }
 
-.video-thumb .thumb-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
-.video-thumb .play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    padding-left: 2px; 
-    pointer-events: none; 
+.red-line {
+font-size: 24px;
+font-weight: bold;
+color: #e30613;
 }
 </style>

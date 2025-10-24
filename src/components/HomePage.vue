@@ -19,13 +19,13 @@ import { Icon } from '@iconify/vue'
         <a href="#" target="_blank">
           <Icon icon="mdi:whatsapp" width="30" />
         </a>
-        <a href="#" target="_blank">
+        <a href="https://www.instagram.com/budispeed.id" target="_blank">
           <Icon icon="mdi:instagram" width="30" />
         </a>
-        <a href="#" target="_blank">
+        <a href="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" target="_blank">
           <Icon icon="simple-icons:tiktok" width="30" />
         </a>
-        <a href="#" target="_blank">
+        <a href="https://youtube.com/@danielbudianto28?si=fuCwg51jAwG2oZyq" target="_blank">
           <Icon icon="mdi:youtube" width="30" />
         </a>
       </div>
