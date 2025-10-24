@@ -4,11 +4,13 @@ import Footer from '../components/Footer.vue'
 import HomePage from '../components/HomePage.vue'
 import GaleryTestimoni from '../components/GaleryTestimoni.vue'
 import Testimoni from '../components/Testimoni.vue'
+import Tentang from '@/components/Tentang.vue'
 </script>
 
 <template>
   <Navbar />
   <HomePage />
+  <Tentang />
   <GaleryTestimoni />
   <Testimoni />
   <Footer />
