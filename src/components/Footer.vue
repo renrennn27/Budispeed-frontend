@@ -1,25 +1,18 @@
+<script setup>
+import { Icon } from '@iconify/vue'
+</script>
+
 <template>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Budi Speed</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
         <div class="footer-section">
-            
             <div class="footer-header-bar">
                 <h3 class="footer-title">Hubungi <span>Kami</span></h3>
-                
                 <div class="footer-social-info">
                     <p class="info-text">Ikuti kami untuk info produk, promo, dan konten terbaru.</p>
                     <div class="social-icons-inline">
-                        <a href="#" class="social-placeholder"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-placeholder"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-placeholder"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></a>
+                        <RouterLink to="https://www.instagram.com/budispeed.id" class="social-placeholder"><i class="fab fa-instagram"></i></RouterLink>
+                        <RouterLink to="https://youtube.com/@danielbudianto28?si=fuCwg51jAwG2oZyq" class="social-placeholder"><i class="fab fa-youtube"></i></RouterLink>
+                        <RouterLink to="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" class="social-placeholder"><i class="fab fa-tiktok"></i></RouterLink>
+                        <RouterLink to="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></RouterLink>
                     </div>
                     
                 </div>
@@ -43,34 +36,30 @@
                 <div class="footer-column contact-info">
                     <h4>Kontak</h4>
                     <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p> Manyar Kertoadi VI No.6, Manyar Sabrangan, <br> Kec. Mulyorejo, Surabaya, Jawa Timur 60116</br>
+                        <Icon class="icon" icon="mdi:location" width="25" />
+                        <p> Manyar Kertoadi VI No.6, Manyar Sabrangan, <br> Kec. Mulyorejo, Surabaya, Jawa Timur 60116
                         </p>
                     </div>
                     <div class="contact-detail">
-                        <i class="fas fa-phone"></i>
+                        <Icon class="icon" icon="mdi:telephone" width="25" />
                         <p>+62 812-5678-8493</p>
                     </div>
-                  
                     </div>
-
-                  <div class="footer-column contact-info">
-                      <h4>Lokasi Kami</h4>
+                    <div class="footer-column contact-info">
+                    <h4>Lokasi Kami</h4>
                     <div class="map-container">
-        <iframe class="map-frame" 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4986.288697070992!2d112.77892322041916!3d-7.284011497895683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3f42173e2d%3A0x4ee162c8567b9643!2sBUDI%20SPEED!5e0!3m2!1sid!2sid!4v1760294317785!5m2!1sid!2sid" width="400" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        <iframe class="map-frame" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4986.288697070992!2d112.77892322041916!3d-7.284011497895683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3f42173e2d%3A0x4ee162c8567b9643!2sBUDI%20SPEED!5e0!3m2!1sid!2sid!4v1760294317785!5m2!1sid!2sid" width="400" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
 
-            </iframe>
-    </div>
-              </div>
+                        </iframe>
+                    </div>
+                    </div>
             </div>
 
-            <div class="footer-note">
+                <div class="footer-note">
                 © 2025 Budispeed.id All Rights Reserved.
-            </div>
+                </div>
         </div>
-    </div>
-</body>
 </template>
 
 <style>
@@ -93,6 +82,7 @@
     align-items: flex-end; 
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-title {
@@ -157,7 +147,8 @@
     transition: background-color 0.3s;
 }
 .social-placeholder:hover {
-    background-color: #ff5050;
+    background-color: transparent;
+    border: 1px solid #fff;
 }
 
 .footer-content {
@@ -217,9 +208,9 @@
     margin-bottom: 15px;
 }
 
-.contact-detail i {
+.icon {
     margin-right: 10px;
-    color: #e30613; 
+    color: #e30613;
     margin-top: 3px; 
     min-width: 15px;
 }
