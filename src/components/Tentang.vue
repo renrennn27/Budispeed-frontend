@@ -2,7 +2,6 @@
 
 <div class="main-container">
     <div class="container">
-        <!-- Section Tentang Kami -->
         <div class="header">
             <h1>TENTANG <span>KAMI</span></h1>
         </div>
@@ -19,7 +18,6 @@
             </div>
         </div>
 
-        <!-- Section Siapa Kami Saat Ini -->
         <div class="section-siapa-kami">
             <div class="siapa-kami-container">
                 <div class="content-wrapper-second">
@@ -42,9 +40,10 @@
 
 <style>
     .main-container {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #c41e1e;
             padding: 60px 0;
+            border-radius: 45px;
         }
 
         .container {
@@ -136,7 +135,6 @@
             text-align: right;
         }
 
-        /* Section Siapa Kami Saat Ini */
         .section-siapa-kami {
             padding: 50px 40px;
         }
@@ -198,7 +196,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: none;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn-visit:hover {
