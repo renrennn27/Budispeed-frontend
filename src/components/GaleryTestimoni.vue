@@ -2,37 +2,37 @@
     <h2 class="h2-gallery">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
     <section class="gallery-container">
       <div class="timeline">
-        <div class="timeline-item left">
+        <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/bodykit.png" alt="bodykit">
             <P class="p-right">Pemasangan Body Kit Venturer oleh <span class="tulisan-merah">Bos BudiSpeed</span></P>
           </div>
         </div>
-        <div class="timeline-item right">
+        <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/Stoplamp.png" alt="stoplamp">
             <P>Stoplamp V2+ dengan <span class="tulisan-merah">Welcome Light Smoke</span></P>
           </div>
         </div>
-        <div class="timeline-item left">
+        <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/bekleed.png" alt="bekleed">
             <P>Restorasi Bekleed Jok Fortuner VRZ dan <span class="tulisan-merah">Tambah Full Spons</span></P>
           </div>
         </div>
-        <div class="timeline-item right">
+        <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/Littletrees.png" alt="littletrees">
             <P>Pemasangan Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
           </div>
         </div>
-        <div class="timeline-item left">
+        <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Microfiber.png" alt="microfiber">
             <P>Edgeless Microfiber Satu Sisi Buat Lap Satu Sisi Lagi Buat Moles <span class="tulisan-merah">Anti Baret</span></P>
           </div>
         </div>
-        <div class="timeline-item right">
+        <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/Hooddomper.png" alt="hooddomper">
             <P>Hood Damper untuk innova Reborn dari<span class="tulisan-merah"> Sustec Warna Hitam</span></P>
@@ -82,22 +82,31 @@
 }
 
 .timeline-item {
-  padding: 10px 0;
-  position: relative;
   width: 50%;
-  box-sizing: border-box;
+  position: relative;
+  margin: 60px 0;
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+.timeline-item p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #333;
 }
 
 .timeline-item::after {
 content: '';
 position: absolute;
-width: 20px;
-height: 20px;
-right: -10px;
+width: 24px;
+height: 24px;
 background-color: #d9534f;
-top: 20px;
+top: 50%;
 border-radius: 50%;
 transform: translateY(-50%);
 z-index: 1;
@@ -109,7 +118,7 @@ z-index: 1;
 }
 
 .timeline-item.left::after {
-  right: -10px;
+  right: -12px;
 }
 
 .timeline-item.right {
@@ -119,7 +128,7 @@ z-index: 1;
 }
 
 .timeline-item.right::after {
-  left: -10px;
+  left: -12px;
 }
 
 .timeline-content {
@@ -155,4 +164,16 @@ z-index: 1;
 .p-right {
   margin-left: 150px;
 }
+
+.timeline-item.left p {
+  left: calc(100% + 30px);
+  text-align: left;
+}
+
+.timeline-item.right p {
+  right: calc(100% + 30px);
+  text-align: right;
+}
+
+
 </style>
