@@ -1,25 +1,18 @@
 <script setup>
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
+import HomePage from '../components/HomePage.vue'
+import GaleryTestimoni from '../components/GaleryTestimoni.vue'
+import Testimoni from '../components/Testimoni.vue'
+import Tentang from '@/components/Tentang.vue'
 </script>
 
 <template>
   <Navbar />
-
-  <main>
-    <section class="hero">
-      <h1>BUDI <span>SPEED</span></h1>
-      <h2>Bengkel Legendaris, Kualitas Josjis.</h2>
-      <p>Sejak 1998, Budispeed menjadi andalan pecinta otomotif di Surabaya. 
-        Temukan aksesoris dan komponen terbaik untuk mobil Anda, dengan pelayanan jujur yang viral di media sosial.</p>
-      <p>Tertarik? Pesan Sekarang!</p>
-      <div class="hero-buttons">
-        <button class="btn-primary">Pesan Sekarang</button>
-        <button class="btn-secondary">Lihat Produk</button>
-      </div>
-    </section>
-  </main>
-
+  <HomePage />
+  <Tentang />
+  <GaleryTestimoni />
+  <Testimoni />
   <Footer />
 </template>
 
@@ -83,4 +76,7 @@ import Footer from '../components/Footer.vue'
   background-color: var(--primary-color);
   color: white;
 }
+
+
+
 </style>
