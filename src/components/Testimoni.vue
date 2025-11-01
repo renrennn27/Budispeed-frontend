@@ -281,9 +281,10 @@ color: #e30613;
 <!-- Style 3: Judul utama -->
 <style scoped>
 .title {
-  font-size: 0px;  
+  font-size: 25px;  
    margin-top: -70px;
   margin-bottom: 8px;
+  color: black;
 }
 .title .thin {
   font-weight: 800;
