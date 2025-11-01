@@ -30,7 +30,7 @@ import { Icon } from '@iconify/vue'
             </form>
 
             <p class="signup-link">
-                Sudah memiliki akun? <router-link to="/login">Masuk!</router-link>
+                Sudah memiliki akun? <router-link to="/admin/login">Masuk!</router-link>
             </p>
         </div>
     </div>

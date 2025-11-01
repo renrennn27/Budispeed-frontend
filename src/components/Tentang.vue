@@ -44,8 +44,13 @@ import { Icon } from '@iconify/vue'
 
 <style>
     .main-container {
+<<<<<<< HEAD
             background-color: #c41e1e;
+=======
+            background-color: var(--primary-color);
+>>>>>>> 76a2d8d03b5b61b3a68bb19ef92168814bfaaee6
             padding: 60px 0;
+            border-radius: 60px;
         }
 
         .container {
@@ -195,9 +200,10 @@ import { Icon } from '@iconify/vue'
             border-radius: 25px;
             font-size: 14px;
             cursor: pointer;
+            font-weight: bold;
             transition: all 0.3s ease;
             text-transform: none;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn-visit:hover {

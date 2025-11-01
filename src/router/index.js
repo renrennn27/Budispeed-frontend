@@ -13,12 +13,17 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/login',
+      path: '/admin',
+      name: 'admin',
+      component: LoginPage
+    },
+    {
+      path: '/admin/login',
       name: 'login',
       component: LoginPage
     },
     {
-      path: '/Sign-in',
+      path: '/admin/Sign-in',
       name: 'Sign-in',
       component: SigninPage
     },

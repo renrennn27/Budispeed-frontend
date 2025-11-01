@@ -66,7 +66,7 @@
 }
 
 .tulisan-merah {
-  color: #d9534f;
+  color: var(--primary-color);
   font-weight: bold
 }
 
@@ -79,7 +79,6 @@
 .timeline::after {
   content: '';
   position: absolute;
-  width: 3px;
   background-color: #000000;
   bottom: 15px;
   transform: translateX(-50%);
@@ -109,9 +108,6 @@
 .timeline-item::after {
   content: '';
   position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: #d9534f;
   top: 50px;
   border-radius: 50%;
   transform: translateY(-50%);
