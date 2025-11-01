@@ -158,6 +158,11 @@ import { Icon } from '@iconify/vue'
     justify-content: flex-start;
 }
 
+.about-us {
+    flex: 0 1 350px;
+    min-width: 350px;
+}
+
 .footer-column {
     flex: 0 1 auto; 
     min-width: 150px; 

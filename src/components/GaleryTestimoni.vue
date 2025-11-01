@@ -2,37 +2,37 @@
     <h2 class="h2-gallery">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
     <section class="gallery-container">
       <div class="timeline">
-        <div class="timeline-item right">
+        <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/bodykit.png" alt="bodykit">
             <P class="p-right">Pemasangan Body Kit Venturer oleh <span class="tulisan-merah">Bos BudiSpeed</span></P>
           </div>
         </div>
-        <div class="timeline-item left">
+        <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Stoplamp.png" alt="stoplamp">
             <P>Stoplamp V2+ dengan <span class="tulisan-merah">Welcome Light Smoke</span></P>
           </div>
         </div>
-        <div class="timeline-item right">
+        <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/bekleed.png" alt="bekleed">
             <P>Restorasi Bekleed Jok Fortuner VRZ dan <span class="tulisan-merah">Tambah Full Spons</span></P>
           </div>
         </div>
-        <div class="timeline-item left">
+        <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Littletrees.png" alt="littletrees">
             <P>Pemasangan Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
           </div>
         </div>
-        <div class="timeline-item right">
+        <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/Microfiber.png" alt="microfiber">
             <P>Edgeless Microfiber Satu Sisi Buat Lap Satu Sisi Lagi Buat Moles <span class="tulisan-merah">Anti Baret</span></P>
           </div>
         </div>
-        <div class="timeline-item left">
+        <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Hooddomper.png" alt="hooddomper">
             <P>Hood Damper untuk innova Reborn dari<span class="tulisan-merah"> Sustec Warna Hitam</span></P>
@@ -59,7 +59,7 @@
 }
 
 .tulisan-merah {
-  color: #d9534f;
+  color: var(--primary-color);
   font-weight: bold
 }
 
@@ -72,12 +72,11 @@
 .timeline::after {
   content: '';
   position: absolute;
-  width: 3px;
-  background-color: #d9534f;
+  width: 2px;
+  background-color: #000000;
   bottom: 15px;
   transform: translateX(-50%);
   top: 15px;
-  margin-left: -1.5px;
   left: 50%; 
 }
 
@@ -94,27 +93,28 @@
   top: 50%;
   transform: translateY(-50%);
   width: 200px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.3;
   color: #333;
 }
 
 .timeline-item::after {
-content: '';
-position: absolute;
-width: 24px;
-height: 24px;
-background-color: #d9534f;
-top: 50%;
-border-radius: 50%;
-transform: translateY(-50%);
-z-index: 1;
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-color);
+  top: 50px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .timeline-item.left {
   left: 0;
   justify-content: flex-end;
+  padding-right: 30px;
 }
 
 .timeline-item.left::after {
@@ -124,6 +124,7 @@ z-index: 1;
 .timeline-item.right {
   left: 50%;
   justify-content: flex-start;
+  padding-left: 30px;
 
 }
 
@@ -144,7 +145,7 @@ z-index: 1;
 }
 
 .timeline-content img {
-  width: 150px;
+  width: 300px;
   height: auto;
   margin-bottom: 10px;
   display: block;
@@ -155,7 +156,7 @@ z-index: 1;
 
 .timeline-content p {
     margin: 0;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 1.4;
     font-weight: bold;
     color: #333;
@@ -166,14 +167,23 @@ z-index: 1;
 }
 
 .timeline-item.left p {
-  left: calc(100% + 30px);
+  left: calc(100% + 80px);
   text-align: left;
 }
 
 .timeline-item.right p {
-  right: calc(100% + 30px);
+  right: calc(100% + 80px);
   text-align: right;
 }
 
+.timeline-item:first-child::after {
+  top: 10px;
+  transform: translateY(0);
+}
 
+.timeline-item:last-child::after {
+  top: auto;
+  bottom: 10px;
+  transform: translateY(0);
+}
 </style>
