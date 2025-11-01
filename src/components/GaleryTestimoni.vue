@@ -1,4 +1,5 @@
 <template>
+
     <h2 class="h2-gallery">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
     <section class="gallery-container">
       <div class="timeline">
@@ -8,30 +9,35 @@
             <P class="p-right">Pemasangan Body Kit Venturer oleh <span class="tulisan-merah">Bos BudiSpeed</span></P>
           </div>
         </div>
+
         <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Stoplamp.png" alt="stoplamp">
             <P>Stoplamp V2+ dengan <span class="tulisan-merah">Welcome Light Smoke</span></P>
           </div>
         </div>
+
         <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/bekleed.png" alt="bekleed">
             <P>Restorasi Bekleed Jok Fortuner VRZ dan <span class="tulisan-merah">Tambah Full Spons</span></P>
           </div>
         </div>
+
         <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Littletrees.png" alt="littletrees">
             <P>Pemasangan Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
           </div>
         </div>
+
         <div class="timeline-item left">
           <div class="timeline-content">
             <img src="../assets/Microfiber.png" alt="microfiber">
             <P>Edgeless Microfiber Satu Sisi Buat Lap Satu Sisi Lagi Buat Moles <span class="tulisan-merah">Anti Baret</span></P>
           </div>
         </div>
+
         <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Hooddomper.png" alt="hooddomper">
@@ -44,6 +50,7 @@
 </template>
 
 <style scoped>
+
 .gallery-container {
   max-width: 500px;
   width: 100%;
@@ -72,7 +79,6 @@
 .timeline::after {
   content: '';
   position: absolute;
-  width: 2px;
   background-color: #000000;
   bottom: 15px;
   transform: translateX(-50%);
@@ -93,7 +99,7 @@
   top: 50%;
   transform: translateY(-50%);
   width: 200px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.3;
   color: #333;
@@ -102,9 +108,6 @@
 .timeline-item::after {
   content: '';
   position: absolute;
-  width: 24px;
-  height: 24px;
-  background-color: var(--primary-color);
   top: 50px;
   border-radius: 50%;
   transform: translateY(-50%);
@@ -118,7 +121,7 @@
 }
 
 .timeline-item.left::after {
-  right: -12px;
+  right: -20px;
 }
 
 .timeline-item.right {
@@ -129,7 +132,7 @@
 }
 
 .timeline-item.right::after {
-  left: -12px;
+  left: -20px;
 }
 
 .timeline-content {
@@ -145,7 +148,7 @@
 }
 
 .timeline-content img {
-  width: 300px;
+  width: 400px;
   height: auto;
   margin-bottom: 10px;
   display: block;
@@ -156,7 +159,7 @@
 
 .timeline-content p {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2.3rem;
     line-height: 1.4;
     font-weight: bold;
     color: #333;
@@ -186,4 +189,5 @@
   bottom: 10px;
   transform: translateY(0);
 }
+
 </style>

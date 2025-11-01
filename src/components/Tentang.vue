@@ -1,8 +1,11 @@
+<script setup>
+import { Icon } from '@iconify/vue'
+</script>
+
 <template>
 
 <div class="main-container">
     <div class="container">
-        <!-- Section Tentang Kami -->
         <div class="header">
             <h1>TENTANG <span>KAMI</span></h1>
         </div>
@@ -19,14 +22,13 @@
             </div>
         </div>
 
-        <!-- Section Siapa Kami Saat Ini -->
         <div class="section-siapa-kami">
             <div class="siapa-kami-container">
                 <div class="content-wrapper-second">
                     <div class="text-container-second">
                         <h2><span>Siapa Kami</span> Saat Ini</h2>
                         <p>Kini, Budispeed adalah pusat aksesori dan komponen mobil di Surabaya yang menyediakan beragam kebutuhan kendaraan. Kami dikenal luas melalui TikTok (@budispeed.id) berkat gaya promosi kami yang jujur, ceplas-ceplos, dan menghibur.</p>
-                        <p class="question">Penasaran? kunjugi sosial media kami!</p>
+                        <p class="question">Penasaran? kunjungi sosial media kami!</p>
                         <button class="btn-visit">Kunjungi sekarang</button>
                     </div>
                     <div class="image-container-second">
@@ -88,7 +90,6 @@
             margin: 0;
         }
 
-        /* Section Tentang Kami */
         .header {
             margin-bottom: 40px;
             padding: 0 40px;
@@ -172,7 +173,6 @@
             text-align: right;
         }
 
-        /* Section Siapa Kami Saat Ini */
         .section-siapa-kami {
             padding: 50px 40px;
         }
@@ -235,7 +235,7 @@
             font-weight: bold;
             transition: all 0.3s ease;
             text-transform: none;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn-visit:hover {
