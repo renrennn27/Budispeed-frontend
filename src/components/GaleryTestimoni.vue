@@ -27,7 +27,7 @@
         <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Littletrees.png" alt="littletrees">
-            <P>Pemasangan Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
+            <P><br>Pema<br>sangan</br> Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
           </div>
         </div>
 
@@ -66,7 +66,7 @@
 }
 
 .tulisan-merah {
-  color: var(--primary-color);
+  color: #d9534f;
   font-weight: bold
 }
 
@@ -79,6 +79,7 @@
 .timeline::after {
   content: '';
   position: absolute;
+  width: 2px;
   background-color: #000000;
   bottom: 15px;
   transform: translateX(-50%);
@@ -108,9 +109,12 @@
 .timeline-item::after {
   content: '';
   position: absolute;
-  top: 50px;
+  width: 24px;
+  height: 24px;
+  background-color: #d9534f;
+  top: 15px;
   border-radius: 50%;
-  transform: translateY(-50%);
+  transform: translateY(0);
   z-index: 1;
 }
 
@@ -121,18 +125,17 @@
 }
 
 .timeline-item.left::after {
-  right: -20px;
+  right: -12px;
 }
 
 .timeline-item.right {
   left: 50%;
   justify-content: flex-start;
   padding-left: 30px;
-
 }
 
 .timeline-item.right::after {
-  left: -20px;
+  left: -12px;
 }
 
 .timeline-content {
@@ -144,7 +147,6 @@
   text-align: left;
   align-items: center;
   gap: 15px;
-
 }
 
 .timeline-content img {
@@ -154,7 +156,6 @@
   display: block;
   border-radius: 8px;
   flex-shrink: 0;
-  
 }
 
 .timeline-content p {
@@ -180,13 +181,13 @@
 }
 
 .timeline-item:first-child::after {
-  top: 10px;
+  top: 15px;
   transform: translateY(0);
 }
 
 .timeline-item:last-child::after {
   top: auto;
-  bottom: 10px;
+  bottom: 15px;
   transform: translateY(0);
 }
 
