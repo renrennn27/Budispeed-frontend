@@ -281,7 +281,7 @@ color: #e30613;
 <!-- Style 3: Judul utama -->
 <style scoped>
 .title {
-  font-size: 0px;  
+  font-size: 50px;  
    margin-top: -70px;
   margin-bottom: 8px;
 }
