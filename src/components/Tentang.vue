@@ -1,221 +1,409 @@
+<script setup>
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+import bodykit from '../assets/bodykit.png';
+import Hooddomper from '../assets/Hooddomper.png';
+
+// Script tetap sama, kecuali fungsi goToSlide yang tidak diperlukan lagi
+const slides = ref([
+  { id: 1, image: bodykit, title: 'Mobil 1', //link: blablabla
+ },
+  { id: 2, image: Hooddomper, title: 'Mobil 2' },
+  { id: 3, image: bodykit, title: 'Mobil 4' },
+  { id: 5, image: Hooddomper, title: 'Mobil 5' },
+  { id: 6, image: bodykit, title: 'Mobil 6' },
+  { id: 7, image: Hooddomper, title: 'Mobil 7' },
+]);
+
+const currentIndex = ref(0);
+const isDragging = ref(false);
+const startX = ref(0);
+const offset = ref(0);
+const autoplayInterval = ref(null);
+const transitionEnabled = ref(true);
+
+const totalSlides = computed(() => slides.value.length);
+const multiplier = 5;
+const centerOffset = Math.floor(multiplier / 2) * slides.value.length;
+
+const extendedSlides = computed(() => {
+  const result = [];
+  for (let i = 0; i < multiplier; i++) {
+    result.push(...slides.value);
+  }
+  return result;
+});
+
+const normalizedIndex = computed(() => {
+  return ((currentIndex.value % totalSlides.value) + totalSlides.value) % totalSlides.value;
+});
+
+currentIndex.value = centerOffset;
+
+const getSlideStyle = (index) => {
+  const centerIndex = centerOffset + (currentIndex.value % totalSlides.value);
+  const diff = index - currentIndex.value; // Disederhanakan untuk kalkulasi yang lebih mudah
+  const absDiff = Math.abs(diff);
+
+  if (absDiff > 2) {
+    return { display: 'none' };
+  }
+
+  // PERUBAHAN 3: Nilai pengali diubah dari 200 menjadi 180 untuk merapatkan gambar
+  const translateX = diff * 180 + offset.value;
+  let scale = 1 - (absDiff * 0.2); // Penyesuaian skala agar tidak terlalu kecil di pinggir
+  scale = Math.max(0.7, Math.min(1, scale)); // Batas skala bawah dinaikkan
+  let opacity = 1 - (absDiff * 0.25);
+  opacity = Math.max(0.5, Math.min(1, opacity));
+  const zIndex = 100 - absDiff * 10;
+  const rotateY = diff * -15; // Rotasi sedikit dikurangi agar lebih natural
+
+  return {
+    transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
+    opacity: opacity,
+    zIndex: zIndex,
+    // PERUBAHAN 4: Transisi dikontrol oleh ref 'transitionEnabled'
+    transition: transitionEnabled.value ? 'all 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)' : 'none',
+    display: 'block'
+  };
+};
+
+const nextSlide = () => { if (!isDragging.value) currentIndex.value++; };
+const prevSlide = () => { if (!isDragging.value) currentIndex.value--; };
+
+watch(currentIndex, () => {
+  // Jika slider mencapai set duplikat terakhir, tunggu animasi selesai, lalu lompat ke tengah
+  if (currentIndex.value >= totalSlides.value * (multiplier - 1)) {
+    setTimeout(() => {
+      transitionEnabled.value = false;
+      currentIndex.value = centerOffset + totalSlides.value;
+      setTimeout(() => {
+        transitionEnabled.value = true;
+      }, 50);
+    }, 600);
+  }
+  // Jika slider mencapai set duplikat pertama, tunggu animasi selesai, lalu lompat ke tengah
+  if (currentIndex.value < totalSlides.value) {
+     setTimeout(() => {
+      transitionEnabled.value = false;
+      currentIndex.value = centerOffset - totalSlides.value;
+      setTimeout(() => {
+        transitionEnabled.value = true;
+      }, 50);
+    }, 600);
+  }
+});
+
+const handleSlideClick = (index) => {
+  const diff = index - currentIndex.value;
+
+  if (diff === 0) {
+    const targetSlide = slides.value[normalizedIndex.value];
+    if (targetSlide && targetSlide.link && targetSlide.link !== '#') {
+      window.open(targetSlide.link, '_blank');
+    }
+  } else {
+    // Klik pada slide manapun akan menggeser ke slide tersebut
+    currentIndex.value = index;
+  }
+};
+
+const handleDragStart = (e) => {
+  isDragging.value = true;
+  transitionEnabled.value = false; // Matikan transisi saat di-drag
+  startX.value = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+  stopAutoplay();
+};
+
+const handleDragMove = (e) => {
+  if (!isDragging.value) return;
+  const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+  const diff = currentX - startX.value;
+  offset.value = diff;
+};
+
+const handleDragEnd = () => {
+  if (!isDragging.value) return;
+  isDragging.value = false;
+  transitionEnabled.value = true; // Nyalakan kembali transisi
+  
+  if (Math.abs(offset.value) > 80) {
+    if (offset.value > 0) prevSlide();
+    else nextSlide();
+  }
+  
+  offset.value = 0;
+  startAutoplay();
+};
+
+const stopAutoplay = () => {
+  if (autoplayInterval.value) {
+    clearInterval(autoplayInterval.value);
+  }
+};
+
+const startAutoplay = () => {
+  stopAutoplay();
+  autoplayInterval.value = setInterval(() => {
+    nextSlide();
+  }, 3000);
+};
+
+onMounted(() => { startAutoplay(); });
+onUnmounted(() => { stopAutoplay(); });
+</script>
+
 <template>
-
-<div class="main-container">
+  <div class="main-container">
     <div class="container">
-        <!-- Section Tentang Kami -->
-        <div class="header">
-            <h1>TENTANG <span>KAMI</span></h1>
+      
+      <div class="coverflow-section">
+        <div class="coverflow-container">
+          <div class="coverflow-wrapper" @mousedown="handleDragStart" @mousemove="handleDragMove" @mouseup="handleDragEnd" @mouseleave="handleDragEnd" @touchstart="handleDragStart" @touchmove="handleDragMove" @touchend="handleDragEnd">
+            <div class="coverflow-track">
+              <div v-for="(slide, index) in extendedSlides" :key="`${slide.id}-${index}`" class="coverflow-slide" :style="getSlideStyle(index)" @click="handleSlideClick(index)">
+                <img :src="slide.image" :alt="slide.title">
+                <div class="slide-overlay">
+                  <h3>{{ slide.title }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+
         </div>
 
-        <div class="card">
-            <div class="content-wrapper">
-                <div class="image-container">
-                    <img src="../assets/Mobil.png" alt="Budi Speed Car">
-                </div>
-                <div class="text-container">
-                    <h2>SEJARAH <span>KAMI</span></h2>
-                    <p>Perjalanan Budispeed dimulai sejak tahun 1998, dirintis oleh ayah dari pemilik saat ini melalui sebuah bengkel rumahan bernama Budi Jaya. Berkat keahliannya dalam memperbaiki speedometer mobil, lahirlah julukan "Budi Speedo" yang kemudian dikenal luas sebagai Budispeed.</p>
-                </div>
-            </div>
-        </div>
+      <div class="header">
+        <h1>TENTANG <span>KAMI</span></h1>
+      </div>
 
-        <!-- Section Siapa Kami Saat Ini -->
-        <div class="section-siapa-kami">
-            <div class="siapa-kami-container">
-                <div class="content-wrapper-second">
-                    <div class="text-container-second">
-                        <h2><span>Siapa Kami</span> Saat Ini</h2>
-                        <p>Kini, Budispeed adalah pusat aksesori dan komponen mobil di Surabaya yang menyediakan beragam kebutuhan kendaraan. Kami dikenal luas melalui TikTok (@budispeed.id) berkat gaya promosi kami yang jujur, ceplas-ceplos, dan menghibur.</p>
-                        <p class="question">Penasaran? kunjugi sosial media kami!</p>
-                        <button class="btn-visit">Kunjungi sekarang</button>
-                    </div>
-                    <div class="image-container-second">
-                        <img src="../assets/Logotempat.png" alt="Logo">
-                    </div>
-                </div>
-            </div>
+      <div class="card">
+        <div class="content-wrapper">
+          <div class="image-container">
+            <img src="../assets/Mobil.png" alt="Budi Speed Car">
+          </div>
+          <div class="text-container">
+            <h2>SEJARAH <span>KAMI</span></h2>
+            <p>Perjalanan Budispeed dimulai sejak tahun 1998, dirintis oleh ayah dari pemilik saat ini melalui sebuah bengkel rumahan bernama Budi Jaya. Berkat keahliannya dalam memperbaiki speedometer mobil, lahirlah julukan "Budi Speedo" yang kemudian dikenal luas sebagai Budispeed.</p>
+          </div>
         </div>
+      </div>
+
+      <div class="section-siapa-kami">
+        <div class="siapa-kami-container">
+          <div class="content-wrapper-second">
+            <div class="text-container-second">
+              <h2><span>Siapa Kami</span> Saat Ini</h2>
+              <p>Kini, Budispeed adalah pusat aksesori dan komponen mobil di Surabaya yang menyediakan beragam kebutuhan kendaraan. Kami dikenal luas melalui TikTok (@budispeed.id) berkat gaya promosi kami yang jujur, ceplas-ceplos, dan menghibur.</p>
+              <p class="question">Penasaran? kunjungi sosial media kami!</p>
+              <button class="btn-visit">Kunjungi sekarang</button>
+            </div>
+            <div class="image-container-second">
+              <img src="../assets/Logotempat.png" alt="Logo">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
+  </div>
 </template>
 
-<style>
-    .main-container {
-            background-color: var(--primary-color);
-            padding: 60px 0;
-            border-radius: 60px;
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0;
-        }
+<style scoped>
+.main-container {
+  background-color: var(--primary-color, #c41e1e);
+  padding: 60px 0;
+  border-radius: 60px;
+  margin-top: 300px;
+}
 
-        /* Section Tentang Kami */
-        .header {
-            margin-bottom: 40px;
-            padding: 0 40px;
-        }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-        .header h1 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-style: italic;
-        }
+.header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 0 40px;
+}
 
-        .header h1 span {
-            color: #ffffff;
-            font-weight: bold;
-            font-style: italic;
-        }
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-style: italic;
+}
 
-        .card {
-            background-color: #ffffff;
-            border-radius: 0 10px 10px 0;
-            padding: 40px 50px 40px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            max-width: 85%;
-            margin-bottom: 60px;
-        }
+.header h1 span {
+  color: #ffffff;
+  font-weight: bold;
+  font-style: italic;
+}
 
-        .content-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            min-height: 300px;
-        }
+.card {
+  background-color: #ffffff;
+  border-radius: 0 10px 10px 0;
+  padding: 40px 50px 40px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 85%;
+  margin-bottom: 60px;
+}
 
-        .image-container {
-            flex: 0 0 35%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-left: -50px;
-        }
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  min-height: 300px;
+}
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+.image-container {
+  flex: 0 0 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: -50px;
+}
 
-        .text-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-            text-align: right;
-        }
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
 
-        .text-container h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            align-self: flex-end;
-            font-style: italic;
-        }
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
 
-        .text-container h2 span {
-            color: #c41e1e;
-            font-weight: bold;
-            font-style: italic;
-        }
+.text-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-style: italic;
+}
 
-        .text-container p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-            text-align: right;
-        }
+.text-container h2 span {
+  color: #c41e1e;
+  font-weight: bold;
+  font-style: italic;
+}
 
-        /* Section Siapa Kami Saat Ini */
-        .section-siapa-kami {
-            padding: 50px 40px;
-        }
+.text-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: right;
+}
 
-        .siapa-kami-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.coverflow-section {
+  padding: 0 40px 80px 40px;
+  overflow: hidden;
+  margin-top: -360px;
+}
 
-        .content-wrapper-second {
-            display: flex;
-            align-items: flex-start;
-            gap: 50px;
-        }
+/* Style untuk .coverflow-title dihapus */
 
-        .text-container-second {
-            flex: 1;
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: bold;
-            font-style: italic;
-        }
+.coverflow-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap dihapus karena button sudah tidak ada */
+  margin-bottom: 40px;
+}
 
-        .text-container-second h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
-            margin-bottom: 25px;
-            margin-top: 80px;
-            font-style: italic;
-        }
+.coverflow-wrapper {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  perspective: 1200px;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
 
-        .text-container-second h2 span {
-            font-style: italic;
-            font-weight: bold;
-            color: #ffffff;
-            font-size: 24px;
-        }
+.coverflow-wrapper:active {
+  cursor: grabbing;
+}
 
-        .text-container-second p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
+.coverflow-track {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+}
 
-        .text-container-second .question {
-            margin-top: 25px;
-            margin-bottom: 20px;
-        }
+.coverflow-slide {
+  position: absolute;
+  pointer-events: auto;
+  width: 280px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
 
-        .btn-visit {
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 14px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-transform: none;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+.coverflow-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-        .btn-visit:hover {
-            background-color: #ffffff;
-            color: #c41e1e;
-        }
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
 
-        .image-container-second {
-            flex: 0 0 35%;
-            margin-top: 80px;
-        }
+.coverflow-slide:hover .slide-overlay {
+  transform: translateY(0);
+}
 
-        .image-container-second img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+.slide-overlay h3 {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
 
+.section-siapa-kami { padding: 50px 40px; }
+.siapa-kami-container { max-width: 1200px; margin: 0 auto; }
+.content-wrapper-second { display: flex; align-items: flex-start; gap: 50px; }
+.text-container-second { flex: 1; color: #ffffff; font-size: 24px; font-weight: bold; font-style: italic; }
+.text-container-second h2 { font-size: 24px; font-weight: bold; color: black; margin-bottom: 25px; margin-top: 80px; font-style: italic; }
+.text-container-second h2 span { font-style: italic; font-weight: bold; color: #ffffff; font-size: 24px; }
+.text-container-second p { font-size: 1.1rem; line-height: 1.8; color: #ffffff; margin-bottom: 15px; }
+.text-container-second .question { margin-top: 25px; margin-bottom: 20px; }
+.btn-visit { background-color: transparent; color: #ffffff; border: 2px solid #ffffff; padding: 12px 30px; border-radius: 25px; font-size: 14px; cursor: pointer; font-weight: bold; transition: all 0.3s ease; text-transform: none; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.btn-visit:hover { background-color: #ffffff; color: #c41e1e; }
+.image-container-second { flex: 0 0 35%; margin-top: 80px; }
+.image-container-second img { width: 100%; height: auto; border-radius: 10px; }
+@media (max-width: 768px) {
+  .coverflow-slide { width: 280px; height: 450px; }
+  .coverflow-wrapper { height: 500px; }
+  .content-wrapper, .content-wrapper-second { flex-direction: column; }
+  .card { max-width: 95%; }
+}
 </style>
