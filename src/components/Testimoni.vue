@@ -74,6 +74,16 @@
             </div>
         </section>
     </div>
+   <section class="order-banner">
+<div class="banner-inner">
+<h1 class="title"><span class="thin">PESAN</span> <span class="bold">SEKARANG</span></h1>
+<p class="subtitle">Kunjungi toko resmi kami di marketplace favorit Anda. Dapatkan jaminan produk original, promo eksklusif, dan layanan pengiriman ke seluruh Indonesia.</p>
+<div class="actions">
+<button class="btn btn-primary">Lorem ipsum</button>
+<button class="btn btn-outline">Lorem ipsum</button>
+</div>
+</div>
+</section>
 </main>
 </template>
 
@@ -239,5 +249,116 @@
 font-size: 24px;
 font-weight: bold;
 color: #e30613;
+}
+</style>
+
+<style scoped>
+.order-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #bd1212ff, #bd1212ff);
+  border-radius: 50px 50px 0 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  color: #020000ff;
+  width: 100%;
+  padding: 50px 16px;
+  position: relative;
+  margin: 0;
+  margin-bottom: -40px; 
+}
+</style>
+
+<!-- Style 2: Kontainer dalam -->
+<style scoped>
+.banner-inner {
+  text-align: center;
+  max-width: 700px;
+  padding: 70px 20px;
+}
+</style>
+
+<!-- Style 3: Judul utama -->
+<style scoped>
+.title {
+  font-size: 25px;  
+   margin-top: -70px;
+  margin-bottom: 8px;
+  color: black;
+}
+.title .thin {
+  font-weight: 800;
+  opacity: 0.95;
+}
+.title .bold {
+  font-weight: 700;
+  color: #fff;
+}
+</style>
+
+<!-- Style 4: Paragraf deskripsi -->
+<style scoped>
+.subtitle {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 18px;
+}
+</style>
+
+<!-- Style 5: Tombol dan container tombol -->
+<style scoped>
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.btn {
+  padding: 8px 30px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  min-width: 120px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #000000ff;
+  font-weight: 600;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #f5f5f5;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+</style>
+
+<!-- Style 6: Responsif untuk HP -->
+<style scoped>
+@media (max-width: 520px) {
+  .title {
+    font-size: 24px;
+  }
+  .subtitle {
+    font-size: 12px;
+  }
+  .btn {
+    min-width: 100px;
+    padding: 8px 12px;
+  }
 }
 </style>
