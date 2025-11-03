@@ -27,7 +27,7 @@
         <div class="timeline-item right">
           <div class="timeline-content">
             <img src="../assets/Littletrees.png" alt="littletrees">
-            <P>Pemasangan Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
+            <P><br>Pema<br>sangan</br> Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
           </div>
         </div>
 
