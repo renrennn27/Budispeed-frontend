@@ -236,8 +236,168 @@
 
 
 .red-line {
-font-size: 24px;
-font-weight: bold;
-color: #e30613;
+    font-size: 24px;
+    font-weight: bold;
+    color: #e30613;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+        margin-right: 16px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+
+    .red-line {
+        font-size: 20px;
+    }
+
+    .testimonial-card {
+        flex: 0 0 280px;
+        padding: 16px;
+    }
+
+    .testimonial-container {
+        gap: 16px;
+    }
+
+    .card-header {
+        margin-bottom: 12px;
+    }
+
+    .author-info .avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .author-info .author {
+        font-size: 0.9rem;
+    }
+
+    .rating {
+        font-size: 0.85rem;
+    }
+
+    .testimonial-card .quote {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .product-info {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .product-info .product-image {
+        width: 45px;
+        height: 45px;
+    }
+
+    .product-details .product-name {
+        font-size: 0.85rem;
+    }
+
+    .product-details .product-variation {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .all {
+        padding: 16px 0;
+    }
+
+    .container {
+        padding: 0 12px;
+        margin-right: 12px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+        margin-top: 24px;
+    }
+
+    .red-line {
+        font-size: 18px;
+    }
+
+    .testimonial-card {
+        flex: 0 0 260px;
+        padding: 14px;
+    }
+
+    .testimonial-container {
+        gap: 12px;
+    }
+
+    .card-header {
+        margin-bottom: 10px;
+    }
+
+    .author-info {
+        gap: 8px;
+    }
+
+    .author-info .avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .author-info .author {
+        font-size: 0.85rem;
+    }
+
+    .rating {
+        font-size: 0.8rem;
+    }
+
+    .testimonial-card .quote {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+
+    .product-info {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .product-info .product-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .product-details .product-name {
+        font-size: 0.8rem;
+    }
+
+    .product-details .product-variation {
+        font-size: 0.7rem;
+    }
+
+    .scroll-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+}
+
+@media (max-width: 360px) {
+    .testimonial-card {
+        flex: 0 0 240px;
+        padding: 12px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .red-line {
+        font-size: 16px;
+    }
 }
 </style>

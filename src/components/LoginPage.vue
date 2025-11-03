@@ -165,4 +165,196 @@ button:hover {
     text-decoration: none;
     font-weight: 600;
 }
+
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 768px) {
+    .container1 {
+        padding: 15px;
+    }
+
+    .back-arrow {
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+    }
+
+    .login-wrapper {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .left-panel {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .left-panel .logo {
+        max-width: 180px;
+    }
+
+    .right-panel {
+        padding: 30px 35px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 8px;
+    }
+
+    .right-panel > p {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group input {
+        padding: 12px 40px 12px 18px;
+        font-size: 0.95em;
+    }
+
+    .input-group .icon {
+        right: 18px;
+        font-size: 1em;
+    }
+
+    button {
+        padding: 13px;
+        font-size: 1em;
+        margin-top: 12px;
+    }
+
+    .signup-link {
+        margin-top: 25px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container1 {
+        padding: 12px;
+    }
+
+    .back-arrow {
+        top: 15px;
+        left: 15px;
+        font-size: 22px;
+    }
+
+    .login-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .left-panel {
+        padding: 15px;
+    }
+
+    .left-panel .logo {
+        max-width: 150px;
+    }
+
+    .right-panel {
+        padding: 25px 25px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 6px;
+    }
+
+    .right-panel > p {
+        font-size: 0.95em;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 18px;
+    }
+
+    .input-group input {
+        padding: 11px 38px 11px 16px;
+        font-size: 0.9em;
+    }
+
+    .input-group .icon {
+        right: 16px;
+        font-size: 0.95em;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.95em;
+        margin-top: 10px;
+    }
+
+    .signup-link {
+        margin-top: 20px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 360px) {
+    .container1 {
+        padding: 10px;
+    }
+
+    .back-arrow {
+        top: 12px;
+        left: 12px;
+        font-size: 20px;
+    }
+
+    .left-panel {
+        padding: 12px;
+    }
+
+    .left-panel .logo {
+        max-width: 130px;
+    }
+
+    .right-panel {
+        padding: 20px 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+        margin-bottom: 5px;
+    }
+
+    .right-panel > p {
+        font-size: 0.9em;
+        margin-bottom: 18px;
+    }
+
+    .input-group {
+        margin-bottom: 16px;
+    }
+
+    .input-group input {
+        padding: 10px 36px 10px 14px;
+        font-size: 0.85em;
+    }
+
+    .input-group .icon {
+        right: 14px;
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 11px;
+        font-size: 0.9em;
+        margin-top: 8px;
+    }
+
+    .signup-link {
+        margin-top: 18px;
+        font-size: 0.8em;
+    }
+}
 </style>

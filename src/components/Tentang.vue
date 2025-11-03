@@ -44,11 +44,6 @@ import { Icon } from '@iconify/vue'
 
 <style>
     .main-container {
-<<<<<<< HEAD
-            background-color: #c41e1e;
-=======
-            background-color: var(--primary-color);
->>>>>>> 76a2d8d03b5b61b3a68bb19ef92168814bfaaee6
             padding: 60px 0;
             border-radius: 60px;
         }
@@ -221,4 +216,259 @@ import { Icon } from '@iconify/vue'
             height: auto;
             border-radius: 10px;
         }
+
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 40px 0;
+        border-radius: 40px;
+    }
+
+    .header {
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+
+    .card {
+        padding: 30px 30px 30px 0;
+        max-width: 90%;
+        margin-bottom: 40px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        gap: 25px;
+        min-height: auto;
+    }
+
+    .image-container {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .image-container img {
+        max-width: 80%;
+    }
+
+    .text-container {
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .text-container h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        align-self: center;
+    }
+
+    .text-container p {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .section-siapa-kami {
+        padding: 40px 20px;
+    }
+
+    .content-wrapper-second {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .text-container-second h2 {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .text-container-second h2 span {
+        font-size: 20px;
+    }
+
+    .text-container-second p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .btn-visit {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+
+    .image-container-second {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .image-container-second img {
+        max-width: 70%;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 30px 0;
+        border-radius: 30px;
+    }
+
+    .header {
+        margin-bottom: 20px;
+        padding: 0 16px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .card {
+        padding: 20px 20px 20px 0;
+        max-width: 95%;
+        margin-bottom: 30px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .content-wrapper {
+        gap: 20px;
+    }
+
+    .image-container img {
+        max-width: 90%;
+    }
+
+    .text-container {
+        padding: 0 16px;
+    }
+
+    .text-container h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .text-container p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .section-siapa-kami {
+        padding: 30px 16px;
+    }
+
+    .content-wrapper-second {
+        gap: 25px;
+    }
+
+    .text-container-second h2 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .text-container-second h2 span {
+        font-size: 18px;
+    }
+
+    .text-container-second p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .text-container-second .question {
+        margin-top: 20px;
+        margin-bottom: 16px;
+    }
+
+    .btn-visit {
+        padding: 10px 20px;
+        font-size: 12px;
+        border-radius: 20px;
+    }
+
+    .image-container-second img {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 360px) {
+    .main-container {
+        padding: 20px 0;
+        border-radius: 20px;
+    }
+
+    .header {
+        margin-bottom: 16px;
+        padding: 0 12px;
+    }
+
+    .header h1 {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 16px 16px 16px 0;
+        max-width: 98%;
+        margin-bottom: 24px;
+    }
+
+    .text-container {
+        padding: 0 12px;
+    }
+
+    .text-container h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .text-container p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .section-siapa-kami {
+        padding: 24px 12px;
+    }
+
+    .text-container-second h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .text-container-second h2 span {
+        font-size: 16px;
+    }
+
+    .text-container-second p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .text-container-second .question {
+        margin-top: 16px;
+        margin-bottom: 12px;
+    }
+
+    .btn-visit {
+        padding: 8px 18px;
+        font-size: 11px;
+    }
+
+    .image-container-second img {
+        max-width: 90%;
+    }
+}
 </style>
