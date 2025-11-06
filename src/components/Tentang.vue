@@ -462,7 +462,7 @@ onUnmounted(() => { stopAutoplay(); });
 .Kenapa-Memilih-bduispeed-section {
   background-color: #ffffff;
   padding: 64px 40px;
-  border-radius: 0 0 60px 60px; /* Agar sudut bawahnya melengkung */
+  border-radius: 0 0 60px 60px; 
 }
 .Kenapa-Memilih-bduispeed-container {
   max-width: 1200px;
