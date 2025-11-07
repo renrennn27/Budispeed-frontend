@@ -3,17 +3,21 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 
 // Impor gambar (seperti versi pertama)
-import bodykit from '../assets/bodykit.png';
-import Hooddomper from '../assets/Hooddomper.png';
+import Littletrees from '../assets/Little-Trees1.png';
+import SteerNapa from '../assets/SteerNapa.png';
+import Zenix from '../assets/Bakleed2-Hitam.jpg'
+import MicroFiber from '../assets/Microfiber2-Video.jpg'
+import Stoplamp from '../assets/Stoplamp-New.jpg'
+import Sustec from '../assets/Sustec.jpg'
 
 // Logika slider dari versi pertama (HEAD) dipertahankan
 const slides = ref([
-  { id: 1, image: bodykit, title: 'Mobil 1', link: '#' },
-  { id: 2, image: Hooddomper, title: 'Mobil 2', link: '#' },
-  { id: 3, image: bodykit, title: 'Mobil 4', link: '#' },
-  { id: 5, image: Hooddomper, title: 'Mobil 5', link: '#' },
-  { id: 6, image: bodykit, title: 'Mobil 6', link: '#' },
-  { id: 7, image: Hooddomper, title: 'Mobil 7', link: '#' },
+  { id: 1, image: Littletrees, title: 'Littletrees', link: 'https://vt.tiktok.com/ZSymwtwEw/' },
+  { id: 2, image: SteerNapa, title: 'Bekleed Steer Nappa', link: 'https://vt.tiktok.com/ZSymTctSg/' },
+  { id: 3, image: Zenix, title: 'Zenix Dilapisi Semi', link: 'https://vt.tiktok.com/ZSymwghJF/' },
+  { id: 5, image: MicroFiber, title: 'Kain Lap Microfiber', link: 'https://vt.tiktok.com/ZSymEfefD/' },
+  { id: 6, image: Stoplamp, title: 'Pemasangan Stop Lamp', link: 'https://vt.tiktok.com/ZSyudvD4H/' },
+  { id: 7, image: Sustec, title: 'Sustec Hood Damper', link: 'https://vt.tiktok.com/ZSyud3fNg/' },
 ]);
 
 const currentIndex = ref(0);
