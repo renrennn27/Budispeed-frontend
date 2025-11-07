@@ -235,4 +235,252 @@ import { Icon } from '@iconify/vue'
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
 }
+
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 992px) {
+    .footer-section {
+        padding: 40px 20px 10px 20px;
+    }
+
+    .footer-content {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .about-us {
+        flex: 0 1 100%;
+        min-width: 100%;
+    }
+
+    .footer-column {
+        flex: 0 1 calc(50% - 15px);
+        min-width: calc(50% - 15px);
+    }
+
+    .map-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 30px 16px 10px 16px;
+    }
+
+    .footer-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+
+    .footer-title {
+        font-size: 20px;
+    }
+
+    .footer-title span {
+        font-size: 20px;
+    }
+
+    .footer-social-info {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .info-text {
+        font-size: 13px;
+    }
+
+    .social-icons-inline {
+        justify-content: flex-start;
+    }
+
+    .social-placeholder {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 16px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .about-us {
+        flex: 0 1 100%;
+        min-width: 100%;
+    }
+
+    .footer-column {
+        flex: 0 1 100%;
+        min-width: 100%;
+    }
+
+    .footer-column h4 {
+        font-size: 1em;
+        margin-bottom: 12px;
+    }
+
+    .footer-column p {
+        font-size: 13px;
+    }
+
+    .footer-column li a {
+        font-size: 13px;
+    }
+
+    .contact-detail p {
+        font-size: 13px;
+    }
+
+    .map-container {
+        height: 220px;
+    }
+
+    .footer-note {
+        font-size: 0.75em;
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section {
+        padding: 24px 12px 8px 12px;
+    }
+
+    .footer-header-bar {
+        gap: 12px;
+        padding-bottom: 12px;
+        margin-bottom: 15px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+    }
+
+    .footer-title span {
+        font-size: 18px;
+    }
+
+    .info-text {
+        font-size: 12px;
+    }
+
+    .social-icons-inline {
+        gap: 6px;
+    }
+
+    .social-placeholder {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 15px;
+    }
+
+    .footer-content {
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footer-column h4 {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+    }
+
+    .footer-column p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .footer-column li a {
+        font-size: 12px;
+        padding: 4px 0;
+    }
+
+    .contact-detail {
+        margin-bottom: 12px;
+    }
+
+    .icon {
+        margin-right: 8px;
+    }
+
+    .contact-detail p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .map-container {
+        height: 200px;
+        margin-top: 12px;
+    }
+
+    .footer-note {
+        font-size: 0.7em;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer-section {
+        padding: 20px 10px 8px 10px;
+    }
+
+    .footer-header-bar {
+        gap: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+    }
+
+    .footer-title {
+        font-size: 16px;
+    }
+
+    .footer-title span {
+        font-size: 16px;
+    }
+
+    .info-text {
+        font-size: 11px;
+    }
+
+    .social-placeholder {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 14px;
+    }
+
+    .footer-content {
+        gap: 16px;
+        padding-bottom: 16px;
+    }
+
+    .footer-column h4 {
+        font-size: 0.9em;
+        margin-bottom: 8px;
+    }
+
+    .footer-column p {
+        font-size: 11px;
+    }
+
+    .footer-column li a {
+        font-size: 11px;
+    }
+
+    .contact-detail p {
+        font-size: 11px;
+    }
+
+    .map-container {
+        height: 180px;
+    }
+
+    .footer-note {
+        font-size: 0.65em;
+    }
+}
 </style>

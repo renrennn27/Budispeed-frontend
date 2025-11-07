@@ -116,5 +116,152 @@ import { Icon } from '@iconify/vue'
   background-color: transparent;
   color: black;
   border: 1px solid black;
-} 
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto 25px auto;
+  }
+
+  .hero-buttons {
+    gap: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+  }
+
+  .social-icons {
+    margin-top: 25px;
+    gap: 18px;
+  }
+
+  .social-icons a {
+    width: 42px;
+    height: 42px;
+  }
+
+  .social-icons a :deep(svg) {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    padding: 0 10px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 30px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+    gap: 15px;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+  }
+
+  .social-icons a :deep(svg) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    padding: 35px 12px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    margin: 0 auto 18px auto;
+    padding: 0 5px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 9px 25px;
+    font-size: 0.85rem;
+    max-width: 220px;
+  }
+
+  .social-icons {
+    margin-top: 18px;
+    gap: 12px;
+  }
+
+  .social-icons a {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+  }
+
+  .social-icons a :deep(svg) {
+    width: 22px;
+    height: 22px;
+  }
+}
 </style>
