@@ -12,7 +12,7 @@ import { Icon } from '@iconify/vue'
                         <RouterLink to="https://www.instagram.com/budispeed.id" class="social-placeholder"><i class="fab fa-instagram"></i></RouterLink>
                         <RouterLink to="https://youtube.com/@danielbudianto28?si=fuCwg51jAwG2oZyq" class="social-placeholder"><i class="fab fa-youtube"></i></RouterLink>
                         <RouterLink to="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" class="social-placeholder"><i class="fab fa-tiktok"></i></RouterLink>
-                        <RouterLink to="#" class="social-placeholder"><i class="fab fa-whatsapp"></i></RouterLink>
+                        <RouterLink to="https://wa.me/6285100166858" class="social-placeholder"><i class="fab fa-whatsapp"></i></RouterLink>
                     </div>
                     
                 </div>

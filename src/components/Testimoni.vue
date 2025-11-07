@@ -79,8 +79,8 @@
 <h1 class="title"><span class="thin">PESAN</span> <span class="bold">SEKARANG</span></h1>
 <p class="subtitle">Kunjungi toko resmi kami di marketplace favorit Anda. Dapatkan jaminan produk original, promo eksklusif, dan layanan pengiriman ke seluruh Indonesia.</p>
 <div class="actions">
-<button class="btn btn-primary">Lorem ipsum</button>
-<button class="btn btn-outline">Lorem ipsum</button>
+<button class="btn btn-primary">Pesan Sekarang</button>
+<button class="btn btn-outline">Lihat Produk</button>
 </div>
 </div>
 </section>
@@ -254,22 +254,21 @@ color: #e30613;
 
 <style scoped>
 .order-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #bd1212ff, #bd1212ff);
-  border-radius: 50px 50px 0 0;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  color: #020000ff;
-  width: 100%;
-  padding: 50px 16px;
-  position: relative;
-  margin: 0;
-  margin-bottom: -40px; 
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(180deg, #bd1212ff, #bd1212ff);
+border-radius: 50px 50px 0 0;
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+color: #020000ff;
+width: 100%;
+padding: 50px 16px;
+position: relative;
+margin: 0;
+margin-bottom: -40px; 
 }
 </style>
 
-<!-- Style 2: Kontainer dalam -->
 <style scoped>
 .banner-inner {
   text-align: center;
@@ -278,7 +277,6 @@ color: #e30613;
 }
 </style>
 
-<!-- Style 3: Judul utama -->
 <style scoped>
 .title {
   font-size: 25px;  
@@ -296,7 +294,6 @@ color: #e30613;
 }
 </style>
 
-<!-- Style 4: Paragraf deskripsi -->
 <style scoped>
 .subtitle {
   font-size: 15px;
@@ -347,7 +344,6 @@ color: #e30613;
 }
 </style>
 
-<!-- Style 6: Responsif untuk HP -->
 <style scoped>
 @media (max-width: 520px) {
   .title {

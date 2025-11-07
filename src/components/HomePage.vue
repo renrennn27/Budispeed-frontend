@@ -13,10 +13,11 @@ import { Icon } from '@iconify/vue'
       <p>Tertarik? Pesan Sekarang!</p>
       <div class="hero-buttons">
         <button class="btn-primary">Pesan Sekarang</button>
+
         <button class="btn-secondary">Lihat Produk</button>
       </div>
       <div class="social-icons">
-        <a href="#" target="_blank">
+        <a href="https://wa.me/6285100166858" target="_blank">
           <Icon icon="mdi:whatsapp" width="30" />
         </a>
         <a href="https://www.instagram.com/budispeed.id" target="_blank">

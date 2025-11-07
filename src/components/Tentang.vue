@@ -243,9 +243,10 @@ onUnmounted(() => { stopAutoplay(); });
 /* Semua style dari kedua versi digabungkan */
 .main-container {
   background-color: var(--primary-color, #c41e1e);
-  padding: 60px 0 0 0; /* Disesuaikan agar padding bawah tidak double */
-  border-radius: 60px;
+  padding: 60px 0 0 0;
+  border-radius: 60px 0px 0px 60px;
   margin-top: 300px;
+  max-width: 1200px;
 }
 .container {
   max-width: 1200px;
@@ -288,7 +289,7 @@ onUnmounted(() => { stopAutoplay(); });
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: -50px;
+  margin-left: -78px;
 }
 .image-container img {
   width: 100%;
