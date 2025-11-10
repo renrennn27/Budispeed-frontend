@@ -103,7 +103,6 @@
     margin: 0 auto;
     padding: 0 20px; 
     align-items: center;
-    margin-right: 30px;
 }
 
 .section-title {

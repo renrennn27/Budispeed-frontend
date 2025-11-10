@@ -200,8 +200,9 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="Kenapa-Memilih-bduispeed-section">
+  <div class="Kenapa-Memilih-bduispeed-section">
       <div class="Kenapa-Memilih-bduispeed-container">
         <h2 class="title">
           <span class="title-black">Kenapa Memilih </span>
@@ -235,7 +236,6 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 
@@ -274,8 +274,10 @@ onUnmounted(() => { stopAutoplay(); });
   border-radius: 0 10px 10px 0;
   padding: 40px 50px 40px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  max-width: 85%;
-  margin-bottom: 60px;
+  width: calc(50vw + 600px);
+  left: calc(600px - 50vw);
+  margin-left: 0;
+  margin-right: auto;
 }
 .content-wrapper {
   display: flex;
@@ -288,13 +290,13 @@ onUnmounted(() => { stopAutoplay(); });
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: -78px;
 }
 .image-container img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 10px;
+  margin-left: -120px;
 }
 .text-container {
   flex: 1;

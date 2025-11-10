@@ -153,25 +153,17 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
 
-// ========================================
-// KONFIGURASI API
-// SESUAIKAN URL INI DENGAN LARAVEL KAMU!
-// ========================================
 // const API_URL = 'http://localhost:8000/api/products';
 // const LARAVEL_BASE_URL = 'http://localhost:8000'; // Base URL Laravel
 
-// ========================================
+
 // DATA PRODUK
-// ========================================
 const semuaProduk = ref([]);
 const produkPilihan = ref([]);
 const produkTerlaris = ref([]);
 const produkRekomendasi = ref([]);
 const loading = ref(true);
 
-// ========================================
-// HELPER FUNCTION
-// ========================================
 function getImageUrl(gambarPath) {
   // Jika sudah full URL (http/https), return as is
   if (gambarPath && (gambarPath.startsWith('http://') || gambarPath.startsWith('https://'))) {
@@ -187,9 +179,7 @@ function getImageUrl(gambarPath) {
   return 'https://via.placeholder.com/220';
 }
 
-// ========================================
 // LOAD DATA DARI LARAVEL API
-// ========================================
 async function loadProdukByKategori(kategori) {
   try {
     const response = await fetch(`${API_URL}/category?kategori=${kategori}`);
@@ -244,9 +234,7 @@ onMounted(async () => {
   console.log('- Produk Rekomendasi:', produkRekomendasi.value.length);
 });
 
-// ========================================
-// SLIDER LOGIC (TETAP SAMA)
-// ========================================
+// SLIDER LOGIC
 const sliderPositions = reactive({
   slider1: 0,
   slider2: 0,
