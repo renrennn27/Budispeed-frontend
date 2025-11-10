@@ -1,7 +1,7 @@
 <template>
 
-    <h2 class="h2-gallery">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
     <section class="gallery-container">
+      <h2 class="h2-gallery">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
       <div class="timeline">
         <div class="timeline-item left">
           <div class="timeline-content">
@@ -52,7 +52,7 @@
 <style scoped>
 
 .gallery-container {
-  max-width: 500px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
@@ -63,6 +63,7 @@
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  margin-left: 0;
 }
 
 .tulisan-merah {

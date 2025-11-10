@@ -1,30 +1,41 @@
+
 <template>
   <div class="main-container">
     <div class="container">
+      <!-- HERO SECTION -->
       <div class="hero">
-            <div class="hero-isi">
-                <div class="hero-kiri">
-                    <p style="color: #666; margin-bottom: 10px;">Sajangju</p>
-                    <h1>Produk Berkualitas dengan Harga Terbaik</h1>
-                    <p>Temukan koleksi lengkap produk pilihan kami dengan kualitas terjamin. Dari elektronik hingga aksesoris, semua ada di sini dengan harga yang kompetitif.</p>
-                    <button class="tombol-belanja">Belanja Sekarang</button>
-                </div>
-                <div class="hero-kanan">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=600&fit=crop" alt="Produk">
-                </div>
-            </div>
+        <div class="hero-isi">
+          <div class="hero-kiri">
+            <p style="color: #666; margin-bottom: 40px;">BudiSpeed</p>
+            <h1>Produk Berkualitas dengan Harga Terbaik</h1>
+            <p>Temukan koleksi lengkap produk pilihan kami dengan kualitas terjamin. Dari elektronik hingga aksesoris, semua ada di sini dengan harga yang kompetitif.</p>
+            <button class="tombol-belanja">Belanja Sekarang</button>
+          </div>
+          <div class="hero-kanan">
+            <img src="../assets/Logotempat.png" alt="Produk">
+          </div>
         </div>
-      <div>
+      </div>
+
+      <!-- LOADING INDICATOR -->
+      <div v-if="loading" class="loading-section">
+        <p>Memuat produk...</p>
+      </div>
+
+      <!-- SEMUA PRODUK -->
+      <div v-else>
         <h1>Semua Produk yang Kami Jual</h1>
-        <div class="product-grid">
+        <div v-if="semuaProduk.length === 0" class="empty-state">
+          <p>Belum ada produk. Silakan tambahkan produk melalui dashboard admin.</p>
+        </div>
+        <div v-else class="product-grid">
           <a v-for="produk in semuaProduk" 
-             :key="produk.link" 
+             :key="produk.id" 
              :href="produk.link" 
              class="product-card" 
              target="_blank">
-            
             <div class="product-image">
-              <img :src="produk.gambar" :alt="produk.nama">
+              <img :src="getImageUrl(produk.gambar)" :alt="produk.nama">
             </div>
             <div class="product-info">
               <h3 class="product-name">{{ produk.nama }}</h3>
@@ -38,7 +49,8 @@
         </div>
       </div>
 
-      <div class="slider-section">
+      <!-- PRODUK PILIHAN SLIDER -->
+      <div class="slider-section" v-if="produkPilihan.length > 0">
         <h1>Produk Pilihan</h1>
         <div class="slider-container">
           <button class="slider-button button-left" @click="geserKiri('slider1')">
@@ -47,9 +59,11 @@
           
           <div class="slider-wrapper" ref="sliderWrapper1">
             <div class="slider-items" :style="{ transform: `translateX(${sliderPositions.slider1}px)` }">
-              <div v-for="produk in produkPilihan" :key="produk.link" class="slider-item">
+              <div v-for="produk in produkPilihan" :key="produk.id" class="slider-item">
                 <a :href="produk.link" class="product-card" target="_blank">
-                  <div class="product-image"><img :src="produk.gambar" :alt="produk.nama"></div>
+                  <div class="product-image">
+                    <img :src="getImageUrl(produk.gambar)" :alt="produk.nama">
+                  </div>
                   <div class="product-info">
                     <h3 class="product-name">{{ produk.nama }}</h3>
                     <p class="product-price">{{ produk.harga }}</p>
@@ -62,13 +76,15 @@
               </div>
             </div>
           </div>
+          
           <button class="slider-button button-right" @click="geserKanan('slider1')">
             <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
           </button>
         </div>
       </div>
 
-      <div class="slider-section">
+      <!-- PRODUK TERLARIS SLIDER -->
+      <div class="slider-section" v-if="produkTerlaris.length > 0">
         <h1>Produk Terlaris</h1>
         <div class="slider-container">
           <button class="slider-button button-left" @click="geserKiri('slider2')">
@@ -76,9 +92,11 @@
           </button>
           <div class="slider-wrapper" ref="sliderWrapper2">
             <div class="slider-items" :style="{ transform: `translateX(${sliderPositions.slider2}px)` }">
-              <div v-for="produk in produkTerlaris" :key="produk.link" class="slider-item">
+              <div v-for="produk in produkTerlaris" :key="produk.id" class="slider-item">
                 <a :href="produk.link" class="product-card" target="_blank">
-                  <div class="product-image"><img :src="produk.gambar" :alt="produk.nama"></div>
+                  <div class="product-image">
+                    <img :src="getImageUrl(produk.gambar)" :alt="produk.nama">
+                  </div>
                   <div class="product-info">
                     <h3 class="product-name">{{ produk.nama }}</h3>
                     <p class="product-price">{{ produk.harga }}</p>
@@ -97,7 +115,8 @@
         </div>
       </div>
 
-      <div class="slider-section">
+      <!-- PRODUK REKOMENDASI SLIDER -->
+      <div class="slider-section" v-if="produkRekomendasi.length > 0">
         <h1>Rekomendasi untuk Anda</h1>
         <div class="slider-container">
           <button class="slider-button button-left" @click="geserKiri('slider3')">
@@ -105,9 +124,11 @@
           </button>
           <div class="slider-wrapper" ref="sliderWrapper3">
             <div class="slider-items" :style="{ transform: `translateX(${sliderPositions.slider3}px)` }">
-              <div v-for="produk in produkRekomendasi" :key="produk.link" class="slider-item">
+              <div v-for="produk in produkRekomendasi" :key="produk.id" class="slider-item">
                 <a :href="produk.link" class="product-card" target="_blank">
-                  <div class="product-image"><img :src="produk.gambar" :alt="produk.nama"></div>
+                  <div class="product-image">
+                    <img :src="getImageUrl(produk.gambar)" :alt="produk.nama">
+                  </div>
                   <div class="product-info">
                     <h3 class="product-name">{{ produk.nama }}</h3>
                     <p class="product-price">{{ produk.harga }}</p>
@@ -131,453 +152,398 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
-import hooddomperImage from '../assets/Hooddomper.png';
+import { ref, reactive, onMounted } from 'vue';
 
-// ========================================
-// DATA PRODUK - SETIAP SECTION PUNYA DATA SENDIRI
-// ========================================
+// const API_URL = 'http://localhost:8000/api/products';
+// const LARAVEL_BASE_URL = 'http://localhost:8000'; // Base URL Laravel
 
-// 1. SEMUA PRODUK YANG KAMI JUAL
-const semuaProduk = ref([
-    {
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },
-    {
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },{
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },{
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },{
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },{
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },{
-        nama: "Kopros",
-        harga: "Rp 19.000",
-        rating: 4.8,
-        gambar: hooddomperImage,
-        link: "https://tokopedia.com/produk1"
-    },
-]);
 
-// 2. PRODUK PILIHAN (Data terpisah, bisa diubah sendiri)
-const produkPilihan = ref([
-    {
-        nama: "Headphone Wireless Premium",
-        harga: "Rp 299.000",
-        rating: 4.9,
-        gambar: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/headphone1"
-    },
-    {
-        nama: "Smart Watch Elite",
-        harga: "Rp 1.250.000",
-        rating: 4.7,
-        gambar: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/smartwatch1"
-    },
-    {
-        nama: "Keyboard Mechanical RGB",
-        harga: "Rp 450.000",
-        rating: 4.8,
-        gambar: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/keyboard1"
-    },
-    { nama: "Mouse Gaming Pro", harga: "Rp 350.000", rating: 4.6, gambar: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop", link: "https://tokopedia.com/mouse1" },
-    { nama: "Speaker Bluetooth", harga: "Rp 500.000", rating: 4.8, gambar: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop", link: "https://tokopedia.com/speaker1" }
-]);
+// DATA PRODUK
+const semuaProduk = ref([]);
+const produkPilihan = ref([]);
+const produkTerlaris = ref([]);
+const produkRekomendasi = ref([]);
+const loading = ref(true);
 
-// 3. PRODUK TERLARIS (Data terpisah, bisa diubah sendiri)
-const produkTerlaris = ref([
-    {
-        nama: "Hoodie Premium Cotton",
-        harga: "Rp 175.000",
-        rating: 4.9,
-        gambar: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/hoodie1"
-    },
-    {
-        nama: "Sepatu Sneakers Original",
-        harga: "Rp 850.000",
-        rating: 4.8,
-        gambar: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/sepatu1"
-    },
-    {
-        nama: "Tas Ransel Urban",
-        harga: "Rp 320.000",
-        rating: 4.7,
-        gambar: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/tas1"
-    },
-    { nama: "Kacamata Sunglasses", harga: "Rp 250.000", rating: 4.6, gambar: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop", link: "https://tokopedia.com/kacamata1" },
-    { nama: "Jam Tangan Sport", harga: "Rp 425.000", rating: 4.8, gambar: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&h=400&fit=crop", link: "https://tokopedia.com/jam1" }
-]);
+function getImageUrl(gambarPath) {
+  // Jika sudah full URL (http/https), return as is
+  if (gambarPath && (gambarPath.startsWith('http://') || gambarPath.startsWith('https://'))) {
+    return gambarPath;
+  }
+  
+  // Jika path dari storage Laravel (misal: /storage/products/xxx.jpg)
+  if (gambarPath && gambarPath.startsWith('/storage/')) {
+    return `${LARAVEL_BASE_URL}${gambarPath}`;
+  }
+  
+  // Fallback ke placeholder jika tidak ada gambar
+  return 'https://via.placeholder.com/220';
+}
 
-// 4. REKOMENDASI UNTUK ANDA (Data terpisah, bisa diubah sendiri)
-const produkRekomendasi = ref([
-    {
-        nama: "Power Bank 20000mAh",
-        harga: "Rp 199.000",
-        rating: 4.7,
-        gambar: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/powerbank1"
-    },
-    {
-        nama: "Tripod Smartphone",
-        harga: "Rp 125.000",
-        rating: 4.5,
-        gambar: "https://images.unsplash.com/photo-1606988543206-e109707a1fdb?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/tripod1"
-    },
-    {
-        nama: "Charger Fast Charging",
-        harga: "Rp 89.000",
-        rating: 4.8,
-        gambar: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/charger1"
-    },
-     {
-        nama: "Charger Fast Charging",
-        harga: "Rp 89.000",
-        rating: 4.8,
-        gambar: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/charger1"
-    },
-     {
-        nama: "Charger Fast Charging",
-        harga: "Rp 89.000",
-        rating: 4.8,
-        gambar: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/charger1"
-    },
-     {
-        nama: "Charger Fast Charging",
-        harga: "Rp 89.000",
-        rating: 4.8,
-        gambar: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
-        link: "https://tokopedia.com/charger1"
-    },
-    { nama: "Cable USB-C Premium", harga: "Rp 45.000", rating: 4.6, gambar: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=400&fit=crop", link: "https://tokopedia.com/cable1" },
-    { nama: "Screen Protector HD", harga: "Rp 35.000", rating: 4.7, gambar: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop", link: "https://tokopedia.com/screen1" }
-]);
+// LOAD DATA DARI LARAVEL API
+async function loadProdukByKategori(kategori) {
+  try {
+    const response = await fetch(`${API_URL}/category?kategori=${kategori}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log(`✅ Loaded ${kategori}:`, data.length, 'products');
+    return data;
+  } catch (error) {
+    console.error(`❌ Error loading ${kategori}:`, error);
+    return [];
+  }
+}
 
-// State untuk posisi slider
-const sliderPositions = reactive({
-    slider1: 0,
-    slider2: 0,
-    slider3: 0
+async function loadSemuaProduk() {
+  semuaProduk.value = await loadProdukByKategori('semuaProduk');
+}
+
+async function loadProdukPilihan() {
+  produkPilihan.value = await loadProdukByKategori('produkPilihan');
+}
+
+async function loadProdukTerlaris() {
+  produkTerlaris.value = await loadProdukByKategori('produkTerlaris');
+}
+
+async function loadProdukRekomendasi() {
+  produkRekomendasi.value = await loadProdukByKategori('produkRekomendasi');
+}
+
+// Load semua data saat component dimuat
+onMounted(async () => {
+  loading.value = true;
+  console.log('🚀 Memuat produk dari Laravel API...');
+  
+  await Promise.all([
+    loadSemuaProduk(),
+    loadProdukPilihan(),
+    loadProdukTerlaris(),
+    loadProdukRekomendasi()
+  ]);
+  
+  loading.value = false;
+  console.log('✅ Semua produk berhasil dimuat!');
+  console.log('📊 Data Summary:');
+  console.log('- Semua Produk:', semuaProduk.value.length);
+  console.log('- Produk Pilihan:', produkPilihan.value.length);
+  console.log('- Produk Terlaris:', produkTerlaris.value.length);
+  console.log('- Produk Rekomendasi:', produkRekomendasi.value.length);
 });
 
-// Template Refs
+// SLIDER LOGIC
+const sliderPositions = reactive({
+  slider1: 0,
+  slider2: 0,
+  slider3: 0
+});
+
 const sliderWrapper1 = ref(null);
 const sliderWrapper2 = ref(null);
 const sliderWrapper3 = ref(null);
 
 const wrapperRefs = {
-    slider1: sliderWrapper1,
-    slider2: sliderWrapper2,
-    slider3: sliderWrapper3,
+  slider1: sliderWrapper1,
+  slider2: sliderWrapper2,
+  slider3: sliderWrapper3,
 };
 
 function buatBintang(rating) {
-    let bintangHTML = '';
-    const bintangPenuh = Math.floor(rating);
-    
-    for (let i = 0; i < bintangPenuh; i++) {
-        bintangHTML += '<svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
-    }
-    
-    if (rating % 1 !== 0) {
-        bintangHTML += '<svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" opacity="0.5"/></svg>';
-    }
-    
-    return bintangHTML;
+  let bintangHTML = '';
+  const bintangPenuh = Math.floor(rating);
+  
+  for (let i = 0; i < bintangPenuh; i++) {
+    bintangHTML += '<svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  }
+  
+  if (rating % 1 !== 0) {
+    bintangHTML += '<svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" opacity="0.5"/></svg>';
+  }
+  
+  return bintangHTML;
 }
 
 function geserKiri(sliderId) {
-    const wrapper = wrapperRefs[sliderId].value;
-    if (!wrapper) return;
-    
-    const lebarCard = 230;
-    const lebarContainer = wrapper.offsetWidth;
-    const jumlahCardTerlihat = Math.floor(lebarContainer / lebarCard);
-    const geserJarak = jumlahCardTerlihat * lebarCard;
-    
-    let posisiBaru = sliderPositions[sliderId] + geserJarak;
-    
-    if (posisiBaru > 0) {
-        posisiBaru = 0;
-    }
-    
-    sliderPositions[sliderId] = posisiBaru;
+  const wrapper = wrapperRefs[sliderId].value;
+  if (!wrapper) return;
+  
+  const lebarCard = 230;
+  const lebarContainer = wrapper.offsetWidth;
+  const jumlahCardTerlihat = Math.floor(lebarContainer / lebarCard);
+  const geserJarak = jumlahCardTerlihat * lebarCard;
+  
+  let posisiBaru = sliderPositions[sliderId] + geserJarak;
+  
+  if (posisiBaru > 0) {
+    posisiBaru = 0;
+  }
+  
+  sliderPositions[sliderId] = posisiBaru;
 }
 
 function geserKanan(sliderId) {
-    const wrapper = wrapperRefs[sliderId].value;
-    if (!wrapper) return; 
+  const wrapper = wrapperRefs[sliderId].value;
+  if (!wrapper) return; 
 
-    const lebarCard = 230;
-    const lebarContainer = wrapper.offsetWidth;
-    const jumlahCardTerlihat = Math.floor(lebarContainer / lebarCard);
-    const geserJarak = jumlahCardTerlihat * lebarCard;
-    
-    // Pilih data produk sesuai slider yang diklik
-    let jumlahProduk;
-    if (sliderId === 'slider1') jumlahProduk = produkPilihan.value.length;
-    else if (sliderId === 'slider2') jumlahProduk = produkTerlaris.value.length;
-    else if (sliderId === 'slider3') jumlahProduk = produkRekomendasi.value.length;
-    
-    const totalLebarSlider = jumlahProduk * lebarCard;
-    const maxGeser = -(totalLebarSlider - lebarContainer);
-    
-    let posisiBaru = sliderPositions[sliderId] - geserJarak;
-    
-    if (posisiBaru < maxGeser) {
-        posisiBaru = maxGeser;
-    }
-    
-    sliderPositions[sliderId] = posisiBaru;
+  const lebarCard = 230;
+  const lebarContainer = wrapper.offsetWidth;
+  const jumlahCardTerlihat = Math.floor(lebarContainer / lebarCard);
+  const geserJarak = jumlahCardTerlihat * lebarCard;
+  
+  let jumlahProduk;
+  if (sliderId === 'slider1') jumlahProduk = produkPilihan.value.length;
+  else if (sliderId === 'slider2') jumlahProduk = produkTerlaris.value.length;
+  else if (sliderId === 'slider3') jumlahProduk = produkRekomendasi.value.length;
+  
+  const totalLebarSlider = jumlahProduk * lebarCard;
+  const maxGeser = -(totalLebarSlider - lebarContainer);
+  
+  let posisiBaru = sliderPositions[sliderId] - geserJarak;
+  
+  if (posisiBaru < maxGeser) {
+    posisiBaru = maxGeser;
+  }
+  
+  sliderPositions[sliderId] = posisiBaru;
 }
-
 </script>
 
 <style>
+/* STYLING TETAP SAMA SEPERTI KODE ASLI KAMU */
 .main-container {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 15px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 15px;
 }
 
 .hero {
-    background-color: #f9fafb;
-    padding: 60px 20px;
+  background-color: #f9fafb;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
 }
 
 .hero-isi {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
 }
 
 .hero-kiri {
-    flex: 1;
+  flex: 1;
 }
 
 .hero-kiri h1 {
-    font-size: 48px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
 }
 
 .hero-kiri p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 30px;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
 }
 
 .tombol-belanja {
-    background-color: black;
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
+  background-color: black;
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .tombol-belanja:hover {
-    background-color: #333;
+  background-color: #333;
 }
 
 .hero-kanan {
-    flex: 1;
+  flex: 1;
 }
 
 .hero-kanan img {
-    width: 100%;
-    border-radius: 16px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.loading-section {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 16px;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: black;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: black;
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
-    margin-bottom: 30px;
-    justify-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-items: start;
 }
 
 .product-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-decoration: none;
-    color: black;
-    display: block;
-    max-width: 220px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  display: block;
+  max-width: 220px;
+  transition: 0.3s;
 }
 
 .product-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .product-image {
-    width: 100%;
-    height: 220px;
-    background-color: #ddd;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: #ddd;
+  overflow: hidden;
+  position: relative;
 }
 
 .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.05);
-    transition: 0.3s;
+  transform: scale(1.05);
 }
 
 .product-info {
-    padding: 12px;
+  padding: 12px;
 }
 
 .product-name {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 8px;
-    height: 40px;
-    overflow: hidden;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  height: 40px;
+  overflow: hidden;
 }
 
 .product-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 8px;
 }
 
 .product-rating {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .rating-number {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
 }
 
 .stars {
-    display: flex;
-    gap: 2px;
+  display: flex;
+  gap: 2px;
 }
 
 .star {
-    width: 16px;
-    height: 16px;
-    fill: #ffa500;
+  width: 16px;
+  height: 16px;
+  fill: #ffa500;
 }
 
 .slider-section {
-    margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .slider-container {
-    position: relative;
-    padding: 0 50px;
+  position: relative;
+  padding: 0 50px;
 }
 
 .slider-wrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .slider-items {
-    display: flex;
-    gap: 10px;
-    transition: transform 0.3s;
+  display: flex;
+  gap: 10px;
+  transition: transform 0.3s;
 }
 
 .slider-item {
-    min-width: 220px;
-    max-width: 220px;
+  min-width: 220px;
+  max-width: 220px;
 }
 
 .slider-button {
-    position: absolute;
-    top: 35%;
-    transform: translateY(-50%);
-    background: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
 }
 
 .slider-button:hover {
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 .button-left {
-    left: 5px;
+  left: 5px;
 }
 
 .button-right {
-    right: 5px;
+  right: 5px;
 }
 
 .slider-button svg {
-    width: 20px;
-    height: 20px;
-    fill: #333;
+  width: 20px;
+  height: 20px;
+  fill: #333;
 }
 </style>
