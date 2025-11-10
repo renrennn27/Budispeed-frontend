@@ -5,9 +5,7 @@
 </template>
 
 <script setup>
-// Script Anda
 </script>
 
 <style>
-/* Style Anda */
 </style>
