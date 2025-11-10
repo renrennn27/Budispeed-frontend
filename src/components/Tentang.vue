@@ -236,6 +236,13 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
     </div>
+
+    <div class="main-container1">
+      <div class="container1">
+
+      </div>
+
+    </div>
 </template>
 
 
@@ -528,6 +535,14 @@ onUnmounted(() => { stopAutoplay(); });
   text-align: justify;
   font-size: 0.95rem;
   letter-spacing: 0.3px;
+}
+
+.main-container1 {
+  background-color: #c41e1e;
+  padding: 60px 0px 60px 0px;
+  margin-top: 0px;
+  margin-bottom: 70px;
+
 }
 
 @media (max-width: 768px) {
