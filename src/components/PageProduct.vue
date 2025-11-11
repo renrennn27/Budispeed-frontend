@@ -30,10 +30,10 @@
         </div>
         <div v-else class="product-grid">
           <a v-for="produk in semuaProduk" 
-             :key="produk.id" 
-             :href="produk.link" 
-             class="product-card" 
-             target="_blank">
+            :key="produk.id" 
+            :href="produk.link" 
+            class="product-card" 
+            target="_blank">
             <div class="product-image">
               <img :src="getImageUrl(produk.gambar)" :alt="produk.nama">
             </div>
