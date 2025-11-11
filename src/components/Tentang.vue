@@ -200,9 +200,8 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="Kenapa-Memilih-bduispeed-section">
+    <div class="Kenapa-Memilih-bduispeed-section">
       <div class="Kenapa-Memilih-bduispeed-container">
         <h2 class="title">
           <span class="title-black">Kenapa Memilih </span>
@@ -236,13 +235,7 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
     </div>
-
-    <div class="main-container1">
-      <div class="container1">
-
-      </div>
-
-    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -275,7 +268,7 @@ onUnmounted(() => { stopAutoplay(); });
   letter-spacing: 2px;
   font-style: italic;
   margin-left: 0; 
-  box-shadow: none;
+  box-shadow: one;
 }
 
 .header h1 span {
@@ -289,16 +282,9 @@ onUnmounted(() => { stopAutoplay(); });
   border-radius: 0 10px 10px 0;
   padding: 40px 50px 40px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-<<<<<<< HEAD
   max-width: 85%;
   margin-bottom: 60px;
   margin-left: -180px;
-=======
-  width: calc(50vw + 600px);
-  left: calc(600px - 50vw);
-  margin-left: 0;
-  margin-right: auto;
->>>>>>> 7a371e8375588a761b3cc8002136dde2621ab166
 }
 
 .content-wrapper {
@@ -313,10 +299,7 @@ onUnmounted(() => { stopAutoplay(); });
   display: flex;
   align-items: center;
   justify-content: flex-start;
-<<<<<<< HEAD
-  margin-left: 20px;
-=======
->>>>>>> 7a371e8375588a761b3cc8002136dde2621ab166
+  margin-left: -20px;
 }
 
 .image-container img {
@@ -324,7 +307,6 @@ onUnmounted(() => { stopAutoplay(); });
   height: auto;
   display: block;
   border-radius: 10px;
-  margin-left: -120px;
 }
 
 .text-container {
@@ -594,14 +576,6 @@ onUnmounted(() => { stopAutoplay(); });
   text-align: justify;
   font-size: 0.95rem;
   letter-spacing: 0.3px;
-}
-
-.main-container1 {
-  background-color: #c41e1e;
-  padding: 60px 0px 60px 0px;
-  margin-top: 0px;
-  margin-bottom: 70px;
-
 }
 
 @media (max-width: 768px) {
