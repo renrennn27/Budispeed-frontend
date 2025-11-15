@@ -84,7 +84,7 @@ watch(currentIndex, () => {
     }, 600);
   }
   if (currentIndex.value < totalSlides.value) {
-     setTimeout(() => {
+    setTimeout(() => {
       transitionEnabled.value = false;
       currentIndex.value = centerOffset - totalSlides.value;
       setTimeout(() => {
@@ -295,11 +295,11 @@ onUnmounted(() => { stopAutoplay(); });
 }
 
 .image-container {
-  flex: 0 0 35%;
+  flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: -20px;
+  margin-right: 15px;
 }
 
 .image-container img {
