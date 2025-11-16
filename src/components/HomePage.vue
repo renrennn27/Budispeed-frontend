@@ -38,6 +38,7 @@ import { Icon } from '@iconify/vue'
 .hero {
   text-align: center;
   padding: 80px 20px;
+  background-color: var(--background-color);
 }
 .hero h1 {
   font-size: 3rem;

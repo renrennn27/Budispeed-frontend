@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginPage from '../components/LoginPage.vue'
-import SigninPage from '@/components/SigninPage.vue'
 import AdminDashboard from '@/components/AdminDashboard.vue'
+import AdminProductForm from '../components/AdminProductForm.vue'
 import DetailProduct from '@/components/DetailProduct.vue'
 import PageProduct from '@/components/PageProduct.vue'
 
@@ -15,36 +15,56 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/admin',
-      name: 'admin',
-      component: LoginPage
+      path: '/product', // <-- Rute Anda
+      name: 'product',
+      component: PageProduct
     },
     {
-      path: '/admin/login',
+      path: '/detailproduct/:id', // <-- Tambahkan :id agar dinamis
+      name: 'detailproduct',
+      component: DetailProduct
+    },
+    {
+      path: '/login',
       name: 'login',
       component: LoginPage
     },
     {
-      path: '/admin/Sign-in',
-      name: 'Sign-in',
-      component: SigninPage
+      path: '/dashboard', // <-- Rute Anda
+      name: 'admin.dashboard',
+      component: AdminDashboard,
+      meta: { requiresAuth: true } // 2. TAMBAHKAN META
     },
     {
-      path: '/AdminDashboard',
-      name: 'AdminDashboard',
-      component: AdminDashboard
+      path: '/admin/products/new',
+      name: 'admin.products.new',
+      component: AdminProductForm,
+      meta: { requiresAuth: true }
     },
     {
-      path: '/produk',
-      name: 'Produk',
-      component: PageProduct
-    },
-    {
-      path: '/DetailProduk',
-      name: 'DetailProduk',
-      component: DetailProduct
-    },
+      path: '/admin/products/edit/:id',
+      name: 'admin.products.edit',
+      component: AdminProductForm,
+      meta: { requiresAuth: true }
+    }
   ],
 })
+
+router.beforeEach((to, from, next) => {
+  // Cek apakah halaman tujuan butuh login
+  if (to.meta.requiresAuth) {
+    const token = localStorage.getItem('admin_token');
+    if (token) {
+      // Punya token, izinkan masuk
+      next();
+    } else {
+      // Tidak punya token, tendang ke halaman login
+      next({ name: 'login' });
+    }
+  } else {
+    // Halaman publik, izinkan masuk
+    next();
+  }
+});
 
 export default router
