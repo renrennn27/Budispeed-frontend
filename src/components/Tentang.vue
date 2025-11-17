@@ -168,7 +168,7 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
 
-      <div class="header">
+      <div class="header" id="tentang-kami">
         <h1>TENTANG <span>KAMI</span></h1>
       </div>
 
@@ -239,6 +239,7 @@ onUnmounted(() => { stopAutoplay(); });
 </template>
 
 <style scoped>
+
 .main-container {
   background-color: var(--primary-color, #c41e1e);
   padding: 60px 0 60px 0;

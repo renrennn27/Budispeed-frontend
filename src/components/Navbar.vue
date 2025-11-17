@@ -27,13 +27,13 @@ const closeMenu = () => {
             </button>
 
             <nav class="nav-links" :class="{ active: menuOpen }">
-                <a href="#" @click="closeMenu">Tentang Kami</a>
-                <a href="#" @click="closeMenu">Produk</a>
-                <a href="#" @click="closeMenu">Galeri</a>
-                <a href="#" @click="closeMenu">Hubungi Kami</a>
-                <div class="cart-icon">
-                    <img src="../assets/cart.png" alt="Cart" />
-                </div>
+                <a href="#tentang-kami" @click="closeMenu">Tentang Kami</a>
+                <a href="#produk" @click="closeMenu">Produk</a>
+                <a href="#galeri" @click="closeMenu">Galeri</a>
+                <a href="#hubungi-kami" @click="closeMenu">Hubungi Kami</a>
+                    <div class="cart-icon">
+                        <img src="../assets/cart.png" alt="Cart" />
+                    </div>
             </nav>
         </div>
     </header>
