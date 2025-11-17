@@ -1,5 +1,37 @@
 <script setup>
-import { Icon } from '@iconify/vue'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { Icon } from '@iconify/vue';
+import apiClient from '../services/api'; 
+
+const email = ref('budispeed@gmail.com'); 
+const password = ref('budispeed12345');
+const errorMessage = ref('');
+const router = useRouter(); 
+
+// 2. Buat fungsi login
+async function handleLogin() {
+  errorMessage.value = ''; 
+  try {
+  
+    const response = await apiClient.post('/login', {
+      email: email.value,
+      password: password.value,
+    });
+
+    localStorage.setItem('admin_token', response.data.access_token);
+
+    router.push('/dashboard');
+
+  } catch (error) {
+    console.error('Login gagal:', error);
+    if (error.response && error.response.status === 401) {
+      errorMessage.value = 'Email atau Password salah.';
+    } else {
+      errorMessage.value = 'Terjadi kesalahan. Coba lagi nanti.';
+    }
+  }
+}
 </script>
 
 <template>
@@ -17,21 +49,18 @@ import { Icon } from '@iconify/vue'
             <h1>Halo <span class="highlight">Admin!</span></h1>
             <p>Silahkan masuk untuk mengelola toko Anda!</p>
 
-            <form>
+            <form @submit.prevent="handleLogin">
                 <div class="input-group">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" placeholder="Email" v-model="email" required>
                     <Icon icon="mdi:envelope" class="icon" />
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Kata Sandi" required>
+                    <input type="password" placeholder="Kata Sandi" v-model="password" required>
                     <Icon icon="mdi:lock" class="icon" />
                 </div>
                 <button type="submit">Masuk</button>
+                <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
             </form>
-
-            <p class="signup-link">
-                Belum punya akun? <router-link to="/admin/Sign-in">buat sekarang!</router-link>
-            </p>
         </div>
     </div>
 
@@ -43,7 +72,7 @@ import { Icon } from '@iconify/vue'
 
 .container1 {
     font-family: 'Poppins', sans-serif; 
-    background-color: #f0f2f5; 
+    background-color: var(--background-color); 
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -127,11 +156,11 @@ h1 .highlight {
 
 .input-group .icon {
     position: absolute;
-    right: 20px;
-    top: 50%;
+    right: 10px;
+    top: 20px;
     transform: translateY(-50%);
     color: #999;
-    font-size: 1.1em;
+    font-size: 1.5em;
 }
 
 button {
@@ -153,17 +182,8 @@ button:hover {
     background-color: #a52825; 
 }
 
-.signup-link {
-    margin-top: 30px;
-    font-size: 0.95em;
-    color: #777;
-    text-align: center; 
-}
-
-.signup-link a {
-    color: #007bff; 
-    text-decoration: none;
-    font-weight: 600;
+.error {
+  color: red;
 }
 
 /* ===== RESPONSIVE STYLES ===== */
