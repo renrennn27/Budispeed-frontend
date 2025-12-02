@@ -5,7 +5,7 @@ import apiClient from '../services/api'; // Menggunakan apiClient kita yang suda
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
 
-// --- STATE YANG SAMA DARI KODE ANDA ---
+// --- STATE YANG SAMA DARI KODE ---
 // DATA PRODUK
 const semuaProduk = ref([]);
 const produkPilihan = ref([]);
@@ -59,9 +59,19 @@ onMounted(async () => {
 // --- FUNGSI HELPER YANG DISESUAIKAN ---
 
 // Fungsi ini disederhanakan. API kita sudah memberi URL lengkap.
+// Fungsi helper
+// GANTI FUNGSI LAMA DENGAN INI
 function getImageUrl(url) {
-  // Jika URL ada, gunakan. Jika tidak, pakai placeholder.
-  return url || 'https://via.placeholder.com/220';
+  if (!url) return 'https://via.placeholder.com/220';
+
+  // Jika url sudah ada http (dari internet), biarkan
+  if (url.startsWith('http')) return url;
+
+  // Hapus tanda slash di depan jika ada agar tidak double
+  const cleanUrl = url.startsWith('/') ? url.substring(1) : url;
+
+  // PAKSA tambahkan alamat backend port 8000
+  return `http://127.0.0.1:8000/${cleanUrl}`;
 }
 
 // Fungsi format harga
@@ -446,11 +456,11 @@ h1 {
   font-size: 14px;
   color: #555;
   margin-bottom: 8px;
-  height: 40px; /* Membantu merapikan baris */
+  height: 40px; 
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Membatasi 2 baris */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 

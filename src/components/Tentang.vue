@@ -187,14 +187,14 @@ onUnmounted(() => { stopAutoplay(); });
       <div class="section-siapa-kami">
         <div class="siapa-kami-container">
           <div class="content-wrapper-second">
+            <div class="image-container-second">
+              <img src="../assets/Logotempat.png" alt="Logo">
+            </div>
             <div class="text-container-second">
               <h2><span>Siapa Kami</span> Saat Ini</h2>
               <p>Kini, Budispeed adalah pusat aksesori dan komponen mobil di Surabaya yang menyediakan beragam kebutuhan kendaraan. Kami dikenal luas melalui TikTok (@budispeed.id) berkat gaya promosi kami yang jujur, ceplas-ceplos, dan menghibur.</p>
               <p class="question">Penasaran? kunjungi sosial media kami!</p>
               <button class="btn-visit">Kunjungi sekarang</button>
-            </div>
-            <div class="image-container-second">
-              <img src="../assets/Logotempat.png" alt="Logo">
             </div>
           </div>
         </div>
@@ -237,6 +237,7 @@ onUnmounted(() => { stopAutoplay(); });
       </div>
     </div>
 
+<<<<<<< HEAD
   <div class="beberapa-produk-section">
     <div class="beberapa-produk-container">
       <h2 class="produk-title">Beberapa <span>produk kami!</span></h2>
@@ -268,6 +269,42 @@ onUnmounted(() => { stopAutoplay(); });
       </div>
     </div>
   </div>
+=======
+    <div class="produk-favorit-section">
+      <div class="produk-favorit-container">
+        <h2 class="produk-title">
+          <span class="produk-black">Produk favorit </span>
+          <span class="produk-red">budispeeed</span>
+        </h2>
+
+        <div class="produk-cards">
+          <div class="produk-card">
+            <div class="produk-content">
+              <div class="produk-image">
+                <img src="../assets/Littletrees.png" alt="Littletrees">
+              </div>
+              <div class="produk-text">
+                <h3>Littletrees</h3>
+                <p>Pengharum mobil dengan aroma segar yang tahan lama, membuat perjalanan Anda lebih nyaman.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="produk-card reverse">
+            <div class="produk-content">
+              <div class="produk-text">
+                <h3>Microfiber</h3>
+                <p>Kain lap microfiber premium untuk membersihkan kendaraan Anda dengan lembut dan efektif.</p>
+              </div>
+              <div class="produk-image">
+                <img src="../assets/Microfiber.png" alt="Microfiber">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
 </template>
 
 <style scoped>
@@ -610,6 +647,7 @@ onUnmounted(() => { stopAutoplay(); });
   letter-spacing: 0.3px;
 }
 
+<<<<<<< HEAD
 .beberapa-produk-section {
   padding: 80px 40px;
   width: 100%;
@@ -619,6 +657,16 @@ onUnmounted(() => { stopAutoplay(); });
 }
 
 .beberapa-produk-container {
+=======
+
+
+.produk-favorit-section {
+  background-color: #ffffff;
+  padding: 64px 40px;
+}
+
+.produk-favorit-container {
+>>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -626,6 +674,7 @@ onUnmounted(() => { stopAutoplay(); });
 .produk-title {
   font-size: 2.5rem;
   font-weight: 800;
+<<<<<<< HEAD
   text-align: center;
   margin-bottom: 60px;
   color: #ffffff;
@@ -659,10 +708,76 @@ onUnmounted(() => { stopAutoplay(); });
 }
 
 .product-img {
+=======
+  text-align: left;
+  margin-bottom: 48px;
+  line-height: 1.2;
+  margin-left: 40px;
+}
+
+.produk-black {
+  color: #000000;
+  font-weight: 800;
+}
+
+.produk-red {
+  color: #dc2626;
+  font-weight: 800;
+}
+
+.produk-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.produk-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.produk-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.produk-text {
+  flex: 1;
+  text-align: left;
+}
+
+.produk-text h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.produk-text p {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.produk-image {
+  flex: 0 0 300px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.produk-image img {
+>>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+<<<<<<< HEAD
   transition: transform 0.3s ease;
 }
 
@@ -739,32 +854,58 @@ onUnmounted(() => { stopAutoplay(); });
 
 .btn-lihat-produk:active {
   transform: translateY(0);
+=======
+}
+
+.produk-card.reverse .produk-content {
+  flex-direction: row-reverse;
+>>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
 }
 
 @media (max-width: 768px) {
-  .coverflow-slide { 
-    width: 280px; 
-    height: 450px; 
+  .coverflow-slide {
+    width: 280px;
+    height: 450px;
   }
-  
-  .coverflow-wrapper { 
-    height: 500px; 
+
+  .coverflow-wrapper {
+    height: 500px;
   }
-  
-  .content-wrapper, .content-wrapper-second { 
-    flex-direction: column; 
+
+  .content-wrapper, .content-wrapper-second {
+    flex-direction: column;
   }
-  
-  .card { 
-    max-width: 95%; 
+
+  .card {
+    max-width: 95%;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .title {
     font-size: 2rem;
+  }
+
+  .produk-title {
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+
+  .produk-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .produk-card.reverse .produk-content {
+    flex-direction: column;
+  }
+
+  .produk-image {
+    flex: 0 0 250px;
+    height: 150px;
   }
 }
 </style>
