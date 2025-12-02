@@ -5,6 +5,7 @@ import HomePage from '../components/HomePage.vue'
 import GaleryTestimoni from '../components/GaleryTestimoni.vue'
 import Testimoni from '../components/Testimoni.vue'
 import Tentang from '@/components/Tentang.vue'
+import ProductSection from '@/components/ProductSection.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Tentang from '@/components/Tentang.vue'
   <GaleryTestimoni />
   <Testimoni />
   <Footer />
+  <ProductSection />
 </template>
 
 <style scoped>

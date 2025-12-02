@@ -237,7 +237,6 @@ onUnmounted(() => { stopAutoplay(); });
       </div>
     </div>
 
-<<<<<<< HEAD
   <div class="beberapa-produk-section">
     <div class="beberapa-produk-container">
       <h2 class="produk-title">Beberapa <span>produk kami!</span></h2>
@@ -268,44 +267,7 @@ onUnmounted(() => { stopAutoplay(); });
         </button>
       </div>
     </div>
-  </div>
-=======
-    <div class="produk-favorit-section">
-      <div class="produk-favorit-container">
-        <h2 class="produk-title">
-          <span class="produk-black">Produk favorit </span>
-          <span class="produk-red">budispeeed</span>
-        </h2>
-
-        <div class="produk-cards">
-          <div class="produk-card">
-            <div class="produk-content">
-              <div class="produk-image">
-                <img src="../assets/Littletrees.png" alt="Littletrees">
-              </div>
-              <div class="produk-text">
-                <h3>Littletrees</h3>
-                <p>Pengharum mobil dengan aroma segar yang tahan lama, membuat perjalanan Anda lebih nyaman.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="produk-card reverse">
-            <div class="produk-content">
-              <div class="produk-text">
-                <h3>Microfiber</h3>
-                <p>Kain lap microfiber premium untuk membersihkan kendaraan Anda dengan lembut dan efektif.</p>
-              </div>
-              <div class="produk-image">
-                <img src="../assets/Microfiber.png" alt="Microfiber">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
->>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
-</template>
+  </div></template>
 
 <style scoped>
 
@@ -647,7 +609,6 @@ onUnmounted(() => { stopAutoplay(); });
   letter-spacing: 0.3px;
 }
 
-<<<<<<< HEAD
 .beberapa-produk-section {
   padding: 80px 40px;
   width: 100%;
@@ -656,25 +617,13 @@ onUnmounted(() => { stopAutoplay(); });
   background-color: var(--primary-color, #c41e1e);
 }
 
-.beberapa-produk-container {
-=======
-
-
-.produk-favorit-section {
-  background-color: #ffffff;
-  padding: 64px 40px;
-}
-
-.produk-favorit-container {
->>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
-  max-width: 1200px;
+.beberapa-produk-container {  max-width: 1200px;
   margin: 0 auto;
 }
 
 .produk-title {
   font-size: 2.5rem;
   font-weight: 800;
-<<<<<<< HEAD
   text-align: center;
   margin-bottom: 60px;
   color: #ffffff;
@@ -707,77 +656,10 @@ onUnmounted(() => { stopAutoplay(); });
   height: 450px;
 }
 
-.product-img {
-=======
-  text-align: left;
-  margin-bottom: 48px;
-  line-height: 1.2;
-  margin-left: 40px;
-}
-
-.produk-black {
-  color: #000000;
-  font-weight: 800;
-}
-
-.produk-red {
-  color: #dc2626;
-  font-weight: 800;
-}
-
-.produk-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
-.produk-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.produk-content {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding: 40px;
-}
-
-.produk-text {
-  flex: 1;
-  text-align: left;
-}
-
-.produk-text h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 16px;
-}
-
-.produk-text p {
-  color: #374151;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-.produk-image {
-  flex: 0 0 300px;
-  height: 200px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.produk-image img {
->>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
-  width: 100%;
+.product-img {  width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-<<<<<<< HEAD
   transition: transform 0.3s ease;
 }
 
@@ -853,14 +735,7 @@ onUnmounted(() => { stopAutoplay(); });
 }
 
 .btn-lihat-produk:active {
-  transform: translateY(0);
-=======
-}
-
-.produk-card.reverse .produk-content {
-  flex-direction: row-reverse;
->>>>>>> cb90b0b4ed832e5e95d542a9c12d018bc1531e02
-}
+  transform: translateY(0);}
 
 @media (max-width: 768px) {
   .coverflow-slide {

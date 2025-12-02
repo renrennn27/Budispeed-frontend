@@ -59,11 +59,12 @@
 
 .h2-gallery {
   text-align: left;
-  margin-left: 90px;
+  margin-left: 0;
+  margin-top: 24px;
+  margin-bottom: 24px;
   font-size: 24px;
   font-weight: bold;
   color: #333;
-  margin-left: 0;
 }
 
 .tulisan-merah {
