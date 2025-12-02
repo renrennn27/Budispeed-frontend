@@ -17,6 +17,7 @@ const formData = ref({
 });
 const imageFile = ref(null);
 const currentImageUrl = ref('');
+const imagePreviewUrl = ref('');
 
 function handleFileSelect(event) {
   const file = event.target.files[0];
@@ -148,12 +149,16 @@ async function handleSubmit() {
             <p>Gambar saat ini:</p>
             <img :src="currentImageUrl" alt="Gambar saat ini">
           </div>
-          <input 
-            type="file" 
-            id="image_file" 
+          <input
+            type="file"
+            id="image_file"
             @change="handleFileSelect"
-            accept="image/png, image/jpeg, image/webp" 
+            accept="image/png, image/jpeg, image/webp"
           >
+          <div v-if="imagePreviewUrl" class="image-preview">
+            <p>Gambar yang dipilih:</p>
+            <img :src="imagePreviewUrl" alt="Pratinjau gambar">
+          </div>
         </div>
         
         <div class="form-actions">

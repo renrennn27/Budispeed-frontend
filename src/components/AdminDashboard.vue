@@ -29,6 +29,20 @@ async function fetchProducts() {
 // 2. Panggil fungsi itu saat komponen dimuat
 onMounted(fetchProducts);
 
+// GANTI FUNGSI LAMA DENGAN INI
+function getImageUrl(url) {
+  if (!url) return 'https://via.placeholder.com/220';
+
+  // Jika url sudah ada http (dari internet), biarkan
+  if (url.startsWith('http')) return url;
+
+  // Hapus tanda slash di depan jika ada agar tidak double
+  const cleanUrl = url.startsWith('/') ? url.substring(1) : url;
+
+  // PAKSA tambahkan alamat backend port 8000
+  return `http://127.0.0.1:8000/${cleanUrl}`;
+}
+
 // 3. Buat fungsi untuk menghapus produk
 async function deleteProduct(id) {
   if (!confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
@@ -80,7 +94,7 @@ function logout() {
           <tr v-for="product in products" :key="product.id">
             <td>
               <img 
-                :src="product.image_url || 'https://via.placeholder.com/80'" 
+                :src="getImageUrl(product.image_url)"
                 :alt="product.name" 
                 class="product-thumbnail"
               >
