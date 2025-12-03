@@ -6,17 +6,23 @@ import { Icon } from '@iconify/vue'
 <template>
     <main>
     <section class="hero">
-      <h1>BUDI <span>SPEED</span></h1>
-      <h2>Bengkel Legendaris, Kualitas Josjis.</h2>
-      <p>Sejak 1998, Budispeed menjadi andalan pecinta otomotif di Surabaya. 
-        Temukan aksesoris dan komponen terbaik untuk mobil Anda, dengan pelayanan jujur yang viral di media sosial.</p>
-      <p>Tertarik? Pesan Sekarang!</p>
-      <div class="hero-buttons">
+      <h1 data-aos="fade-up" data-aos-duration="1000">BUDI <span>SPEED</span></h1>
+      
+      <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Bengkel Legendaris, Kualitas Josjis.</h2>
+      
+      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        Sejak 1998, Budispeed menjadi andalan pecinta otomotif di Surabaya. 
+        Temukan aksesoris dan komponen terbaik untuk mobil Anda, dengan pelayanan jujur yang viral di media sosial.
+      </p>
+      
+      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Tertarik? Pesan Sekarang!</p>
+      
+      <div class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
         <a href="https://shopee.co.id/budispeed.id" target="_blank" class="btn-primary">Pesan Sekarang</a>
-
         <a href="/product" class="btn-secondary">Lihat Produk</a>
       </div>
-      <div class="social-icons">
+      
+      <div class="social-icons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
         <a href="https://wa.me/6285100166858" target="_blank">
           <Icon icon="mdi:whatsapp" width="30" />
         </a>
@@ -69,6 +75,7 @@ import { Icon } from '@iconify/vue'
   border: 1px solid black;
   padding: 10px 20px;
   text-decoration: none;
+  text-align: center;
   border-radius: 50px;
   font-size: 1rem;
   font-weight: bold;
@@ -84,6 +91,7 @@ import { Icon } from '@iconify/vue'
   color: black;
   text-decoration: none;
   font-size: 1rem;
+  text-align: center;
   font-weight: bold;
   text-shadow: var(--text-shadow);
   box-shadow: var(--shadow);

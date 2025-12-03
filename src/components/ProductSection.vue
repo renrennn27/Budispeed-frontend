@@ -5,11 +5,12 @@ const router = useRouter()
 </script>
 
 <template>
-        <div class="beberapa-produk-section">
+  <div class="beberapa-produk-section">
     <div class="beberapa-produk-container">
-      <h2 class="produk-title">Beberapa <span>produk kami!</span></h2>
       
-      <div class="product-row product-row-reverse">
+      <h2 class="produk-title" data-aos="fade-up">Beberapa <span>produk kami!</span></h2>
+      
+      <div class="product-row product-row-reverse" data-aos="fade-up">
         <div class="product-text">
           <p class="product-description">Pengharum mobil ikonik dengan berbagai aroma segar yang tahan lama. Pilihan terbaik untuk menjaga kesegaran interior kendaraan Anda.</p>
         </div>
@@ -18,7 +19,7 @@ const router = useRouter()
         </div>
       </div>
 
-      <div class="product-row">
+      <div class="product-row" data-aos="fade-up">
         <div class="product-image">
           <img src="../assets/Microfiber2-Video.jpg" alt="Kain Lap Microfiber" class="product-img">
         </div>
@@ -26,15 +27,17 @@ const router = useRouter()
           <p class="product-description">Kain lap premium dengan serat ultra halus yang aman untuk semua permukaan. Daya serap tinggi dan tidak meninggalkan goresan.</p>
         </div>
       </div>
-      <div class="produk-cta-section">
+
+      <div class="produk-cta-section" data-aos="fade-up">
         <h2 class="cta-heading">Ratusan Produk Tersedia</h2>
-       <h3>Ingin Melihat Produk Kami?</h3>
+        <h3>Ingin Melihat Produk Kami?</h3>
         <button class="btn-lihat-produk" @click="router.push('/product')">
           Lihat produk sekarang
         </button>
       </div>
-</div>
-</div>
+
+    </div>
+  </div>
 </template>
 
 <style>

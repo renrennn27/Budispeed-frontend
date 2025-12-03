@@ -143,15 +143,16 @@ function geserKanan(sliderId) {
   <div class="main-container">
     <Navbar />
     <div class="container">
+      
       <div class="hero">
         <div class="hero-isi">
-          <div class="hero-kiri">
+          <div class="hero-kiri" data-aos="fade-up">
             <p style="color: #666; margin-bottom: 40px;">BudiSpeed</p>
             <h1>Produk Berkualitas dengan Harga Terbaik</h1>
             <p>Temukan koleksi lengkap produk pilihan kami dengan kualitas terjamin. Dari elektronik hingga aksesoris, semua ada di sini dengan harga yang kompetitif.</p>
             <a href="https://shopee.co.id/budispeed.id" target="_blank" class="tombol-belanja">Belanja Sekarang</a>
           </div>
-          <div class="hero-kanan">
+          <div class="hero-kanan" data-aos="fade-up" data-aos-delay="200">
             <img src="../assets/Logotempat.png" alt="Produk"> 
           </div>
         </div>
@@ -162,19 +163,24 @@ function geserKanan(sliderId) {
       </div>
 
       <div v-else>
-        <h1>Semua Produk yang Kami Jual</h1>
+        <h1 data-aos="fade-up">Semua Produk yang Kami Jual</h1>
+        
         <div v-if="semuaProduk.length === 0" class="empty-state">
           <p>Belum ada produk.</p>
         </div>
+        
         <div v-else class="product-grid">
           <component 
-            v-for="product in semuaProduk" 
+            v-for="(product, index) in semuaProduk" 
             :key="product.id" 
             :is="product.marketplace_url ? 'a' : RouterLink"
             :href="product.marketplace_url"
             :to="product.marketplace_url ? null : '/detailproduct/' + product.id"
             :target="product.marketplace_url ? '_blank' : null"
             class="product-card" 
+            
+            data-aos="fade-up"
+            :data-aos-delay="(index % 5) * 100"
           >
             <div class="product-image">
               <img :src="getImageUrl(product.image_url)" :alt="product.name">
@@ -191,7 +197,7 @@ function geserKanan(sliderId) {
         </div>
       </div>
 
-      <div class="slider-section" v-if="produkPilihan.length > 0">
+      <div class="slider-section" v-if="produkPilihan.length > 0" data-aos="fade-up">
         <h1>Produk Pilihan</h1>
         <div class="slider-container">
           <button class="slider-button button-left" @click="geserKiri('slider1')">
@@ -230,7 +236,7 @@ function geserKanan(sliderId) {
         </div>
       </div>
 
-      <div class="slider-section" v-if="produkTerlaris.length > 0">
+      <div class="slider-section" v-if="produkTerlaris.length > 0" data-aos="fade-up">
         <h1>Produk Terlaris</h1>
         <div class="slider-container">
           <button class="slider-button button-left" @click="geserKiri('slider2')">
@@ -267,7 +273,7 @@ function geserKanan(sliderId) {
         </div>
       </div>
 
-      <div class="slider-section" v-if="produkRekomendasi.length > 0">
+      <div class="slider-section" v-if="produkRekomendasi.length > 0" data-aos="fade-up">
         <h1>Rekomendasi untuk Anda</h1>
         <div class="slider-container">
           <button class="slider-button button-left" @click="geserKiri('slider3')">

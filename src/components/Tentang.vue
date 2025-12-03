@@ -153,7 +153,7 @@ onUnmounted(() => { stopAutoplay(); });
   <div class="main-container">
     <div class="container">
       
-      <div class="coverflow-section">
+      <div class="coverflow-section" data-aos="fade-up" data-aos-duration="1000">
         <div class="coverflow-container">
           <div class="coverflow-wrapper" @mousedown="handleDragStart" @mousemove="handleDragMove" @mouseup="handleDragEnd" @mouseleave="handleDragEnd" @touchstart="handleDragStart" @touchmove="handleDragMove" @touchend="handleDragEnd">
             <div class="coverflow-track">
@@ -168,16 +168,16 @@ onUnmounted(() => { stopAutoplay(); });
         </div>
       </div>
 
-      <div class="header" id="tentang-kami">
+      <div class="header" id="tentang-kami" data-aos="fade-up">
         <h1>TENTANG <span>KAMI</span></h1>
       </div>
 
       <div class="card">
         <div class="content-wrapper">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-up">
             <img src="../assets/Mobil.png" alt="Budi Speed Car">
           </div>
-          <div class="text-container">
+          <div class="text-container" data-aos="fade-up" data-aos-delay="200">
             <h2>SEJARAH <span>KAMI</span></h2>
             <p>Perjalanan Budispeed dimulai sejak tahun 1998, dirintis oleh ayah dari pemilik saat ini melalui sebuah bengkel rumahan bernama Budi Jaya. Berkat keahliannya dalam memperbaiki speedometer mobil, lahirlah julukan "Budi Speedo" yang kemudian dikenal luas sebagai Budispeed.</p>
           </div>
@@ -187,10 +187,10 @@ onUnmounted(() => { stopAutoplay(); });
       <div class="section-siapa-kami">
         <div class="siapa-kami-container">
           <div class="content-wrapper-second">
-            <div class="image-container-second">
+            <div class="image-container-second" data-aos="fade-up">
               <img src="../assets/Logotempat.png" alt="Logo">
             </div>
-            <div class="text-container-second">
+            <div class="text-container-second" data-aos="fade-up" data-aos-delay="200">
               <h2><span>Siapa Kami</span> Saat Ini</h2>
               <p>Kini, Budispeed adalah pusat aksesori dan komponen mobil di Surabaya yang menyediakan beragam kebutuhan kendaraan. Kami dikenal luas melalui TikTok (@budispeed.id) berkat gaya promosi kami yang jujur, ceplas-ceplos, dan menghibur.</p>
               <p class="question">Penasaran? kunjungi sosial media kami!</p>
@@ -204,40 +204,44 @@ onUnmounted(() => { stopAutoplay(); });
 
   <div class="Kenapa-Memilih-bduispeed-section">
       <div class="Kenapa-Memilih-bduispeed-container">
-        <h2 class="title">
+        <h2 class="title" data-aos="fade-up">
           <span class="title-black">Kenapa Memilih </span>
           <span class="title-red">Budispeed?</span>
         </h2>
-        <p class="subtitle">
+        <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
           Kami memiliki keunggulan yang terpercaya untuk para pelanggan
         </p>
+        
         <div class="features-grid">
-          <div class="feature-card">
+          
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
             <div class="icon-wrapper">
               <img src="../assets/logokmb3.png" alt="Pengalaman Terpercaya">
             </div>
             <h3 class="feature-title">Pengalaman Terpercaya</h3>
             <p class="feature-description">Berdiri lebih dari dua dekade sejak 1998, kami memiliki pengalaman untuk memberikan produk dan layanan terbaik.</p>
           </div>
-          <div class="feature-card">
+          
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-wrapper">
               <img src="../assets/logokmb2.png" alt="Kualitas Terjamin">
             </div>
             <h3 class="feature-title">Kualitas Terjamin</h3>
             <p class="feature-description">Kami menyediakan beragam aksesoris dan produk perawatan mobil pilihan untuk meningkatkan kenyamanan dan tampilan kendaraan Anda.</p>
           </div>
-          <div class="feature-card">
+          
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
             <div class="icon-wrapper">
               <img src="../assets/logokmb1.png" alt="Viral & Otentik">
             </div>
             <h3 class="feature-title">Viral & Otentik</h3>
             <p class="feature-description">Disukai ribuan audiens, gaya kami yang jujur dan apa adanya adalah jaminan pelayanan yang transparan dan anti baper.</p>
           </div>
+          
         </div>
       </div>
     </div>
-
-  </template>
+</template>
 
 <style scoped>
 

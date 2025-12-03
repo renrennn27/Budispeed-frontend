@@ -14,7 +14,7 @@ const closeMenu = () => {
 </script>
 
 <template>
-    <header class="navbar">
+    <header class="navbar" data-aos="fade-down" data-aos-duration="1000">
         <div class="navbar-container">
             <RouterLink to="/" class="logo">
                 <img src="../assets/Logo budispeed.png" alt="Budi Speed Logo" width="150" height="50" />

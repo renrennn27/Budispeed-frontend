@@ -3,12 +3,12 @@
     <div class="container">
         
         <section id="testimonials">
-            <h2 class="section-title">Apa Kata <span class="red-line">Pelanggan Kami</span></h2>
+            <h2 class="section-title" data-aos="fade-up">Apa Kata <span class="red-line">Pelanggan Kami</span></h2>
 
             <div class="scroll-wrapper">
                 <div class="testimonial-container">
                     
-                    <div class="testimonial-card">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
                         <div class="card-header">
                             <div class="author-info">
                                 <img src="@/assets/Testimoni1.png" alt="Avatar d**6" class="avatar">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="testimonial-card">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-header">
                             <div class="author-info">
                                 <img src="../assets/E icons.png" alt="Avatar E**" class="avatar">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <div class="testimonial-card">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-header">
                             <div class="author-info">
                                 <img src="../assets/PP wa depresi.jpg" alt="Avatar O**o" class="avatar">
@@ -74,16 +74,17 @@
             </div>
         </section>
     </div>
-   <section class="order-banner">
-<div class="banner-inner">
-<h1 class="title"><span class="thin">PESAN</span> <span class="bold">SEKARANG</span></h1>
-<p class="subtitle">Kunjungi toko resmi kami di marketplace favorit Anda. Dapatkan jaminan produk original, promo eksklusif, dan layanan pengiriman ke seluruh Indonesia.</p>
-<div class="actions">
-<a href="https://shopee.co.id/budispeed.id" target="_blank" class="btn btn-primary">Pesan Sekarang</a>
-<a href="/product" class="btn btn-outline">Lihat Produk</a>
-</div>
-</div>
-</section>
+    
+   <section class="order-banner" data-aos="fade-up">
+    <div class="banner-inner">
+        <h1 class="title"><span class="thin">PESAN</span> <span class="bold">SEKARANG</span></h1>
+        <p class="subtitle">Kunjungi toko resmi kami di marketplace favorit Anda. Dapatkan jaminan produk original, promo eksklusif, dan layanan pengiriman ke seluruh Indonesia.</p>
+        <div class="actions">
+            <a href="https://shopee.co.id/budispeed.id" target="_blank" class="btn btn-primary">Pesan Sekarang</a>
+            <a href="/product" class="btn btn-outline">Lihat Produk</a>
+        </div>
+    </div>
+   </section>
 </main>
 </template>
 

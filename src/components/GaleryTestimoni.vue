@@ -1,44 +1,45 @@
 <template>
-
     <section class="gallery-container">
-      <h2 class="h2-gallery">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
+      <h2 class="h2-gallery" data-aos="fade-up" data-aos-offset="150">Galeri Hasil <span class="tulisan-merah">Kerja & Testimoni</span></h2>
+      
       <div class="timeline">
-        <div class="timeline-item left">
+        
+        <div class="timeline-item left" data-aos="fade-up" data-aos-offset="150">
           <div class="timeline-content">
             <img src="../assets/bodykit.png" alt="bodykit">
             <P class="p-right">Pemasangan Body Kit Venturer oleh <span class="tulisan-merah">Bos BudiSpeed</span></P>
           </div>
         </div>
 
-        <div class="timeline-item right">
+        <div class="timeline-item right" data-aos="fade-up" data-aos-offset="150">
           <div class="timeline-content">
             <img src="../assets/Stoplamp.png" alt="stoplamp">
             <P>Stoplamp V2+ dengan <span class="tulisan-merah">Welcome Light Smoke</span></P>
           </div>
         </div>
 
-        <div class="timeline-item left">
+        <div class="timeline-item left" data-aos="fade-up" data-aos-offset="150">
           <div class="timeline-content">
             <img src="../assets/bekleed.png" alt="bekleed">
             <P>Restorasi Bekleed Jok Fortuner VRZ dan <span class="tulisan-merah">Tambah Full Spons</span></P>
           </div>
         </div>
 
-        <div class="timeline-item right">
+        <div class="timeline-item right" data-aos="fade-up" data-aos-offset="150">
           <div class="timeline-content">
             <img src="../assets/Littletrees.png" alt="littletrees">
             <P><br>Pema<br>sangan</br> Little Trees yang Benar <span class="tulisan-merah">Varian Gold</span></P>
           </div>
         </div>
 
-        <div class="timeline-item left">
+        <div class="timeline-item left" data-aos="fade-up" data-aos-offset="150">
           <div class="timeline-content">
             <img src="../assets/Microfiber.png" alt="microfiber">
             <P>Edgeless Microfiber Satu Sisi Buat Lap Satu Sisi Lagi Buat Moles <span class="tulisan-merah">Anti Baret</span></P>
           </div>
         </div>
 
-        <div class="timeline-item right">
+        <div class="timeline-item right" data-aos="fade-up" data-aos-offset="150">
           <div class="timeline-content">
             <img src="../assets/Hooddomper.png" alt="hooddomper">
             <P>Hood Damper untuk innova Reborn dari<span class="tulisan-merah"> Sustec Warna Hitam</span></P>
@@ -46,7 +47,6 @@
         </div>
       </div>
     </section>
-
 </template>
 
 <style scoped>
