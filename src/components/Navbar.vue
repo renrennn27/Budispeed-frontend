@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const menuOpen = ref(false)
 
@@ -15,11 +16,10 @@ const closeMenu = () => {
 <template>
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#" class="logo">
+            <RouterLink to="/" class="logo">
                 <img src="../assets/Logo budispeed.png" alt="Budi Speed Logo" width="150" height="50" />
-            </a>
+            </RouterLink>
             
-            <!-- Hamburger Menu Button -->
             <button class="hamburger" :class="{ active: menuOpen }" @click="toggleMenu" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -27,13 +27,14 @@ const closeMenu = () => {
             </button>
 
             <nav class="nav-links" :class="{ active: menuOpen }">
-                <a href="#tentang-kami" @click="closeMenu">Tentang Kami</a>
-                <a href="#produk" @click="closeMenu">Produk</a>
-                <a href="#galeri" @click="closeMenu">Galeri</a>
-                <a href="#hubungi-kami" @click="closeMenu">Hubungi Kami</a>
-                    <div class="cart-icon">
-                        <img src="../assets/cart.png" alt="Cart" />
-                    </div>
+                <RouterLink :to="{ path: '/', hash: '#tentang-kami' }" @click="closeMenu">Tentang Kami</RouterLink>
+                <RouterLink :to="{ path: '/', hash: '#produk' }" @click="closeMenu">Produk</RouterLink>
+                <RouterLink :to="{ path: '/', hash: '#galeri' }" @click="closeMenu">Galeri</RouterLink>
+                <RouterLink :to="{ path: '/', hash: '#hubungi-kami' }" @click="closeMenu">Hubungi Kami</RouterLink>
+                
+                <RouterLink to="/product" class="cart-icon" @click="closeMenu">
+                    <img src="../assets/cart.png" alt="Cart" />
+                </RouterLink>
             </nav>
         </div>
     </header>
@@ -44,6 +45,11 @@ const closeMenu = () => {
     width: 100%;
     background-color: transparent;
     padding: 15px 0;
+    position: fixed; /* Pastikan navbar fixed agar terlihat saat scroll */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 .navbar-container {
     max-width: 1200px;

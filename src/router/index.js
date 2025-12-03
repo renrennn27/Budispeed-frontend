@@ -48,6 +48,18 @@ const router = createRouter({
       meta: { requiresAuth: true }
     }
   ],
+
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // Jika BUKAN ke hash (misal pindah halaman biasa), scroll ke atas
+    if (!to.hash) {
+      return { top: 0 }
+    }
+    // Jika ada hash, biarkan HomeView yang menanganinya (return nothing/null)
+    return null;
+  }
 })
 
 router.beforeEach((to, from, next) => {
