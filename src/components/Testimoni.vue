@@ -79,8 +79,8 @@
 <h1 class="title"><span class="thin">PESAN</span> <span class="bold">SEKARANG</span></h1>
 <p class="subtitle">Kunjungi toko resmi kami di marketplace favorit Anda. Dapatkan jaminan produk original, promo eksklusif, dan layanan pengiriman ke seluruh Indonesia.</p>
 <div class="actions">
-<button class="btn btn-primary">Pesan Sekarang</button>
-<button class="btn btn-outline">Lihat Produk</button>
+<a href="https://shopee.co.id/budispeed.id" target="_blank" class="btn btn-primary">Pesan Sekarang</a>
+<a href="/product" class="btn btn-outline">Lihat Produk</a>
 </div>
 </div>
 </section>
@@ -477,12 +477,14 @@ margin-bottom: -40px;
 .btn-primary {
   background: #fff;
   color: #000000ff;
+  text-decoration: none;
   font-weight: 600;
 }
 
 .btn-outline {
   background: transparent;
   color: #fff;
+  text-decoration: none;
   border: 1.5px solid rgba(255, 255, 255, 0.22);
   font-weight: 600;
 }

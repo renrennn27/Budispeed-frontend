@@ -12,9 +12,9 @@ import { Icon } from '@iconify/vue'
         Temukan aksesoris dan komponen terbaik untuk mobil Anda, dengan pelayanan jujur yang viral di media sosial.</p>
       <p>Tertarik? Pesan Sekarang!</p>
       <div class="hero-buttons">
-        <button class="btn-primary">Pesan Sekarang</button>
+        <a href="https://shopee.co.id/budispeed.id" target="_blank" class="btn-primary">Pesan Sekarang</a>
 
-        <button class="btn-secondary">Lihat Produk</button>
+        <a href="/product" class="btn-secondary">Lihat Produk</a>
       </div>
       <div class="social-icons">
         <a href="https://wa.me/6285100166858" target="_blank">
@@ -68,6 +68,7 @@ import { Icon } from '@iconify/vue'
   background-color: var(--primary-color);
   border: 1px solid black;
   padding: 10px 20px;
+  text-decoration: none;
   border-radius: 50px;
   font-size: 1rem;
   font-weight: bold;
@@ -80,6 +81,8 @@ import { Icon } from '@iconify/vue'
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 50px;
+  color: black;
+  text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
   text-shadow: var(--text-shadow);

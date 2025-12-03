@@ -194,7 +194,7 @@ onUnmounted(() => { stopAutoplay(); });
               <h2><span>Siapa Kami</span> Saat Ini</h2>
               <p>Kini, Budispeed adalah pusat aksesori dan komponen mobil di Surabaya yang menyediakan beragam kebutuhan kendaraan. Kami dikenal luas melalui TikTok (@budispeed.id) berkat gaya promosi kami yang jujur, ceplas-ceplos, dan menghibur.</p>
               <p class="question">Penasaran? kunjungi sosial media kami!</p>
-              <button class="btn-visit">Kunjungi sekarang</button>
+              <a href="https://www.tiktok.com/@budispeed.id?_t=ZS-90G797x8ifa&_r=1" target="_blank" class="btn-visit">Kunjungi sekarang</a>
             </div>
           </div>
         </div>
@@ -479,6 +479,7 @@ onUnmounted(() => { stopAutoplay(); });
   padding: 12px 30px; 
   border-radius: 25px; 
   font-size: 14px; 
+  text-decoration: none;
   cursor: pointer; 
   font-weight: bold; 
   transition: all 0.3s ease; 

@@ -149,7 +149,7 @@ function geserKanan(sliderId) {
             <p style="color: #666; margin-bottom: 40px;">BudiSpeed</p>
             <h1>Produk Berkualitas dengan Harga Terbaik</h1>
             <p>Temukan koleksi lengkap produk pilihan kami dengan kualitas terjamin. Dari elektronik hingga aksesoris, semua ada di sini dengan harga yang kompetitif.</p>
-            <button class="tombol-belanja">Belanja Sekarang</button>
+            <a href="https://shopee.co.id/budispeed.id" target="_blank" class="tombol-belanja">Belanja Sekarang</a>
           </div>
           <div class="hero-kanan">
             <img src="../assets/Logotempat.png" alt="Produk"> 
@@ -358,6 +358,7 @@ function geserKanan(sliderId) {
   background-color: black;
   color: white;
   padding: 15px 40px;
+  text-decoration: none;
   border: none;
   border-radius: 8px;
   font-size: 16px;

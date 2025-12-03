@@ -29,7 +29,7 @@ const router = useRouter()
       <div class="produk-cta-section">
         <h2 class="cta-heading">Ratusan Produk Tersedia</h2>
        <h3>Ingin Melihat Produk Kami?</h3>
-        <button class="btn-lihat-produk" onclick="alert('Navigasi ke halaman /product')">
+        <button class="btn-lihat-produk" @click="router.push('/product')">
           Lihat produk sekarang
         </button>
       </div>
