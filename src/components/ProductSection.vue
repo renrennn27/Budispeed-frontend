@@ -26,6 +26,13 @@ const router = useRouter()
           <p class="product-description">Kain lap premium dengan serat ultra halus yang aman untuk semua permukaan. Daya serap tinggi dan tidak meninggalkan goresan.</p>
         </div>
       </div>
+      <div class="produk-cta-section">
+        <h2 class="cta-heading">Ratusan Produk Tersedia</h2>
+       <h3>Ingin Melihat Produk Kami?</h3>
+        <button class="btn-lihat-produk" onclick="alert('Navigasi ke halaman /product')">
+          Lihat produk sekarang
+        </button>
+      </div>
 </div>
 </div>
 </template>

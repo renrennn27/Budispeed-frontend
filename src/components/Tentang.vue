@@ -237,37 +237,7 @@ onUnmounted(() => { stopAutoplay(); });
       </div>
     </div>
 
-  <div class="beberapa-produk-section">
-    <div class="beberapa-produk-container">
-      <h2 class="produk-title">Beberapa <span>produk kami!</span></h2>
-      
-      <div class="product-row product-row-reverse">
-        <div class="product-text">
-          <p class="product-description">Pengharum mobil ikonik dengan berbagai aroma segar yang tahan lama. Pilihan terbaik untuk menjaga kesegaran interior kendaraan Anda.</p>
-        </div>
-        <div class="product-image">
-          <img src="../assets/Little-Trees1.png" alt="Little Trees" class="product-img">
-        </div>
-      </div>
-
-      <div class="product-row">
-        <div class="product-image">
-          <img src="../assets/Microfiber2-Video.jpg" alt="Kain Lap Microfiber" class="product-img">
-        </div>
-        <div class="product-text">
-          <p class="product-description">Kain lap premium dengan serat ultra halus yang aman untuk semua permukaan. Daya serap tinggi dan tidak meninggalkan goresan.</p>
-        </div>
-      </div>
-
-      <div class="produk-cta-section">
-        <h2 class="cta-heading">Ratusan Produk Tersedia</h2>
-       <h3>Ingin Melihat Produk Kami?</h3>
-        <button class="btn-lihat-produk" onclick="alert('Navigasi ke halaman /product')">
-          Lihat produk sekarang
-        </button>
-      </div>
-    </div>
-  </div></template>
+  </template>
 
 <style scoped>
 

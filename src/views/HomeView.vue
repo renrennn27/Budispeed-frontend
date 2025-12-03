@@ -12,10 +12,10 @@ import ProductSection from '@/components/ProductSection.vue'
   <Navbar />
   <HomePage />
   <Tentang />
+  <ProductSection />
   <GaleryTestimoni />
   <Testimoni />
   <Footer />
-  <ProductSection />
 </template>
 
 <style scoped>
