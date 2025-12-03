@@ -4,8 +4,8 @@ import { useRouter } from 'vue-router';
 import { Icon } from '@iconify/vue';
 import apiClient from '../services/api'; 
 
-const email = ref('budispeed@gmail.com'); 
-const password = ref('budispeed12345');
+const email = ref(''); 
+const password = ref('');
 const errorMessage = ref('');
 const router = useRouter(); 
 

@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter, RouterLink } from 'vue-router';
 import apiClient from '../services/api.js';
+import Swal from 'sweetalert2';
 
 const route = useRoute();
 const router = useRouter();
@@ -24,7 +25,11 @@ function handleFileSelect(event) {
   if (file && file.size < 2048000) { // Validasi ukuran < 2MB
     imageFile.value = file;
   } else if (file) {
-    alert('Ukuran file terlalu besar. Maksimal 2MB.');
+    Swal.fire({
+      icon: 'warning',
+      title: 'File Terlalu Besar',
+      text: 'Maksimal ukuran file adalah 2MB.',
+    })
     event.target.value = null; // Reset input file
   }
 }
@@ -51,6 +56,13 @@ onMounted(async () => {
 });
 
 async function handleSubmit() {
+  Swal.fire({
+    title: 'Sedang Memproses...',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  })
   const data = new FormData();
 
   data.append('name', formData.value.name);
@@ -69,10 +81,22 @@ async function handleSubmit() {
     } else {
       await apiClient.post('/products', data);
     }
+
+    await Swal.fire({
+      icon: 'success',
+      title: 'Berhasil!',
+      text: isEditMode.value ? 'Produk berhasil diperbarui.' : 'Produk berhasil ditambahkan.',
+      timer: 1500, // Otomatis tutup setelah 1.5 detik
+      showConfirmButton: false
+    });
     router.push({ name: 'admin.dashboard' }); // Kembali ke dashboard
   } catch (error) {
     console.error('Gagal menyimpan produk:', error);
-    alert('Gagal menyimpan: ' + (error.response?.data?.message || error.message));
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal Menyimpan',
+      text: error.response?.data?.message || 'Terjadi kesalahan pada server.',
+    })
   }
 }
 </script>

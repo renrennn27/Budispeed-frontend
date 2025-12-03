@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter, RouterLink } from 'vue-router'; // Pastikan RouterLink di-import
 import apiClient from '../services/api';
+import Swal from 'sweetalert2';
 
 const products = ref([]);
 const router = useRouter();
@@ -45,21 +46,68 @@ function getImageUrl(url) {
 
 // 3. Buat fungsi untuk menghapus produk
 async function deleteProduct(id) {
-  if (!confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
-    return;
-  }
-  try {
-    await apiClient.delete(`/products/${id}`);
-    fetchProducts(); // Refresh tabel
-  } catch (error) {
-    console.error('Gagal menghapus produk:', error);
+  // Tampilkan Konfirmasi
+  const result = await Swal.fire({
+    title: 'Apakah Anda Yakin?',
+    text: "Data produk ini akan dihapus permanen!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33', // Merah untuk tombol hapus
+    cancelButtonColor: '#3085d6', // Biru untuk batal
+    confirmButtonText: 'Ya, Hapus!',
+    cancelButtonText: 'Batal'
+  });
+
+  // Jika user klik "Ya, Hapus!"
+  if (result.isConfirmed) {
+    try {
+      // Tampilkan Loading saat menghapus
+      Swal.fire({
+        title: 'Menghapus...',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
+      await apiClient.delete(`/products/${id}`);
+      
+      // Tampilkan Sukses
+      Swal.fire({
+        icon: 'success',
+        title: 'Terhapus!',
+        text: 'Produk telah berhasil dihapus.',
+        timer: 1500,
+        showConfirmButton: false
+      });
+
+      fetchProducts(); // Refresh tabel
+    } catch (error) {
+      console.error('Gagal menghapus:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: 'Gagal menghapus produk.',
+      });
+    }
   }
 }
 
 // 4. Fungsi untuk logout
 function logout() {
-  localStorage.removeItem('admin_token');
-  router.push('/login');
+  // Opsional: Tambah konfirmasi logout juga biar keren
+  Swal.fire({
+    title: 'Keluar?',
+    text: "Sesi Anda akan diakhiri.",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Ya, Logout'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.removeItem('admin_token');
+      router.push('/login');
+    }
+  });
 }
 </script>
 
